@@ -20,7 +20,7 @@ export class PortfolioComponent {
 
   protected readonly hero = {
     name: 'Edmond Mbadu',
-    title: 'Software Engineer & Research Technologist',
+    title: 'Software Engineer',
     tagline: 'Engineering clear, intelligent experiences.',
     summary:
       'Lead developer with an M.S. in Computer Science from Drexel University. I pair research depth with product craft to ship immersive platforms and tools.',
