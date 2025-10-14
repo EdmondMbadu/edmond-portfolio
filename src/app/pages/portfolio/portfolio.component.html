@@ -1,54 +1,172 @@
-<div class="relative isolate overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-  <div class="absolute inset-0 -z-10 opacity-50">
-    <div class="absolute left-1/2 top-12 h-72 w-72 -translate-x-1/2 rounded-full bg-brand-500/30 blur-3xl"></div>
-    <div class="absolute right-12 top-24 h-56 w-56 rounded-full bg-teal-400/20 blur-3xl"></div>
-    <div class="absolute bottom-12 left-24 h-52 w-52 rounded-full bg-purple-500/20 blur-3xl"></div>
+<div class="relative isolate overflow-hidden bg-slate-950 text-slate-100">
+  <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-500/30 blur-3xl"></div>
+    <div class="absolute bottom-0 left-16 h-72 w-72 rounded-full bg-purple-500/25 blur-[140px]"></div>
+    <div class="absolute -bottom-20 right-12 h-80 w-80 rounded-full bg-teal-400/20 blur-[160px]"></div>
   </div>
 
-  <div class="mx-auto flex min-h-screen max-w-6xl flex-col px-6 pb-20 pt-16 sm:px-10 lg:px-16">
-    <header class="mb-16 flex flex-col gap-6">
-      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-300/90">Portfolio</p>
-      <h1 class="text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
-        Hi, I&apos;m {{ hero.name }} — {{ hero.title }}
-      </h1>
-      <p class="max-w-3xl text-lg text-slate-300 md:text-xl">
-        {{ hero.summary }}
-      </p>
-      <div class="flex flex-wrap items-center gap-3 text-sm text-slate-400">
-        <span class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-          <span class="inline-flex h-2 w-2 animate-pulse rounded-full bg-emerald-400"></span>
-          Available for select collaborations
-        </span>
-        <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2">{{ hero.location }}</span>
+  <div class="mx-auto flex min-h-screen max-w-6xl flex-col gap-20 px-6 pb-24 pt-16 sm:px-10 lg:px-16">
+    <header class="space-y-10">
+      <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.55em] text-brand-200/80">
+        <span class="rounded-full bg-brand-500/15 px-3 py-1 text-brand-100">{{ hero.name }}</span>
+        <span class="rounded-full border border-white/15 px-3 py-1 text-white/70">{{ hero.title }}</span>
       </div>
-      <div class="flex flex-wrap gap-3">
+
+      <div class="space-y-6">
+        <h1 class="text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+          {{ hero.tagline }}
+        </h1>
+        <p class="max-w-3xl text-lg text-slate-300 md:text-xl">
+          {{ hero.summary }}
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 text-sm text-slate-300">
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
+          <span aria-hidden="true" class="h-2 w-2 rounded-full bg-emerald-400"></span>
+          {{ hero.availability }}
+        </span>
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
+          <span aria-hidden="true">📍</span>
+          {{ hero.location }}
+        </span>
+        <a
+          class="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-4 py-2 text-brand-100 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300"
+          [href]="'mailto:' + hero.email"
+        >
+          <span aria-hidden="true">@</span>
+          {{ hero.email }}
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
         <a
           class="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300"
-          href="mailto:hello@edmond.design"
+          [href]="'mailto:' + hero.email"
         >
-          Start a project
-          <span aria-hidden="true">→</span>
+          Start a collaboration
+          <span aria-hidden="true">↗</span>
         </a>
-        <a
-          class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
-          href="#projects"
-        >
-          View work
-        </a>
+        <div class="flex flex-wrap gap-2">
+          <a
+            *ngFor="let social of socials"
+            class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+            [href]="social.url"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span aria-hidden="true">{{ social.icon }}</span>
+            {{ social.name }}
+          </a>
+        </div>
       </div>
     </header>
 
-    <section id="projects" class="mb-16">
-      <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+    <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <article
+        *ngFor="let highlight of heroHighlights"
+        class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-brand-500/5 transition hover:border-brand-300/40 hover:bg-white/10"
+      >
+        <p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200/80">{{ highlight.label }}</p>
+        <p class="mt-3 text-base font-medium text-white md:text-lg">
+          {{ highlight.value }}
+        </p>
+      </article>
+    </section>
+
+    <section id="experience" class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-brand-500/10">
+        <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 class="text-2xl font-semibold text-white md:text-3xl">Experience</h2>
+            <p class="text-sm text-slate-400 md:text-base">
+              Engineering across research labs, high-growth teams, and community-driven organizations.
+            </p>
+          </div>
+        </div>
+        <ol class="space-y-10 border-l border-white/10 pl-10">
+          <li *ngFor="let item of experience" class="relative space-y-4">
+            <span class="absolute -left-[2.9rem] top-2 flex h-6 w-6 items-center justify-center rounded-full border border-brand-300/60 bg-brand-500/20">
+              <span class="h-2 w-2 rounded-full bg-brand-300"></span>
+            </span>
+            <div class="flex flex-wrap items-baseline justify-between gap-3">
+              <h3 class="text-xl font-semibold text-white">{{ item.role }}</h3>
+              <span class="text-sm text-brand-200/90">{{ item.period }}</span>
+            </div>
+            <p class="text-sm text-slate-400">
+              {{ item.company }} · {{ item.location }}
+            </p>
+            <ul class="list-disc space-y-2 pl-5 text-sm text-slate-300">
+              <li *ngFor="let bullet of item.bullets">
+                {{ bullet }}
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-semibold text-white">Education</h3>
+          <div *ngFor="let school of education" class="mt-5 space-y-3 border-b border-white/10 pb-5 last:border-b-0 last:pb-0">
+            <div>
+              <p class="text-sm font-semibold text-brand-200/90">{{ school.degree }}</p>
+              <p class="text-base font-medium text-white">{{ school.school }}</p>
+              <p class="text-xs uppercase tracking-[0.25em] text-slate-400">{{ school.period }}</p>
+              <p class="text-xs text-slate-400">{{ school.location }}</p>
+              <p *ngIf="school.honors" class="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-200">
+                {{ school.honors }}
+              </p>
+            </div>
+            <ul class="list-disc space-y-1 pl-5 text-xs text-slate-300">
+              <li *ngFor="let note of school.notes">
+                {{ note }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+          <h3 class="text-lg font-semibold text-white">Awards</h3>
+          <ul class="mt-4 space-y-4 text-sm text-slate-300">
+            <li *ngFor="let award of awards" class="border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
+              <p class="font-semibold text-white">{{ award.title }}</p>
+              <p class="text-xs text-brand-200/80">{{ award.year }}</p>
+              <p class="mt-1 text-xs text-slate-400">{{ award.detail }}</p>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" class="space-y-8">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <h2 class="text-2xl font-semibold text-white md:text-3xl">Featured Projects</h2>
+          <h2 class="text-2xl font-semibold text-white md:text-3xl">Signature Work</h2>
           <p class="text-sm text-slate-400 md:text-base">
-            Selected collaborations that demonstrate design systems, data visualization, and thoughtful UX.
+            Platforms blending storytelling, intelligence, and meticulous engineering.
           </p>
         </div>
-        <a class="text-sm font-semibold text-brand-300 hover:text-brand-200 md:text-base" href="#">
-          Browse complete work archive →
-        </a>
+        <div class="flex flex-wrap gap-3">
+          <a
+            class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+            href="https://github.com/EdmondMbadu"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span aria-hidden="true">🐙</span>
+            GitHub
+          </a>
+          <a
+            class="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-5 py-2 text-sm font-semibold text-brand-100 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300"
+            href="https://www.linkedin.com/in/edmond-mbadu-245b36145/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span aria-hidden="true">in</span>
+            LinkedIn
+          </a>
+        </div>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
@@ -57,82 +175,117 @@
           class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:-translate-y-1 hover:border-brand-400/50 hover:bg-white/10"
         >
           <div class="absolute inset-0 -z-10 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
-          <div class="mb-4 flex items-center justify-between gap-4">
+          <div class="mb-4 flex flex-wrap items-center justify-between gap-4">
             <h3 class="text-xl font-semibold text-white">{{ project.name }}</h3>
-            <span class="rounded-full border border-brand-300/50 bg-brand-400/20 px-3 py-1 text-xs uppercase tracking-widest text-brand-100">
-              {{ project.stack[0] }}
-            </span>
+            <div class="flex flex-wrap gap-2 text-xs text-slate-400">
+              <span *ngFor="let tech of project.stack" class="rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                {{ tech }}
+              </span>
+            </div>
           </div>
-          <p class="mb-6 text-sm text-slate-300">
+          <p class="text-sm text-slate-300">
             {{ project.description }}
           </p>
-          <div class="mb-6 flex flex-wrap gap-2 text-xs text-slate-400">
-            <span *ngFor="let tech of project.stack" class="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              {{ tech }}
-            </span>
-          </div>
-          <a class="inline-flex items-center gap-2 text-sm font-semibold text-brand-200 transition hover:text-brand-100" [href]="project.link">
-            Case study
+          <ul class="mt-5 list-disc space-y-2 pl-5 text-sm text-slate-300">
+            <li *ngFor="let outcome of project.outcomes">
+              {{ outcome }}
+            </li>
+          </ul>
+          <a
+            *ngIf="project.link"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-200 transition hover:text-brand-100"
+            [href]="project.link"
+            rel="noreferrer"
+            target="_blank"
+          >
+            Explore project
             <span aria-hidden="true">↗</span>
           </a>
         </article>
       </div>
     </section>
 
-    <section class="mb-16 grid gap-10 lg:grid-cols-[1.25fr_1fr]">
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="mb-6 text-2xl font-semibold text-white">Experience</h2>
-        <ol class="space-y-6 border-l border-white/10 pl-6">
-          <li *ngFor="let item of experience" class="relative">
-            <span class="absolute -left-[1.625rem] top-2 h-3 w-3 rounded-full border border-brand-300/70 bg-brand-400/40"></span>
-            <div>
-              <p class="text-sm uppercase tracking-[0.2em] text-brand-200/80">{{ item.period }}</p>
-              <h3 class="text-lg font-semibold text-white">
-                {{ item.role }} · {{ item.company }}
-              </h3>
-              <p class="mt-2 text-sm text-slate-300">
-                {{ item.summary }}
-              </p>
-            </div>
-          </li>
-        </ol>
-      </div>
-
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="mb-6 text-2xl font-semibold text-white">Core Skills</h2>
-        <div class="flex flex-wrap gap-3">
-          <span
-            *ngFor="let skill of skills"
-            class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200"
-          >
-            {{ skill }}
-          </span>
+    <section id="skills" class="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-lg shadow-brand-500/10">
+      <div class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h2 class="text-2xl font-semibold text-white md:text-3xl">Expertise</h2>
+          <p class="text-sm text-slate-400 md:text-base">
+            Technical range from systems programming to intelligent interfaces and cloud operations.
+          </p>
         </div>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        <article *ngFor="let group of skillGroups" class="rounded-2xl border border-white/10 bg-slate-950/40 p-6">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-200/80">{{ group.category }}</h3>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span
+              *ngFor="let item of group.items"
+              class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-slate-200"
+            >
+              {{ item }}
+            </span>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="mt-auto rounded-3xl border border-white/10 bg-gradient-to-br from-brand-500/20 via-brand-500/10 to-white/5 p-10 text-center">
-      <h2 class="text-3xl font-semibold text-white md:text-4xl">Let&apos;s build something outstanding together</h2>
-      <p class="mx-auto mt-4 max-w-3xl text-sm text-slate-200 md:text-base">
-        Whether you need a robust design system, a rapid prototype, or continued product iteration, I partner with teams
-        to deliver resilient, scalable experiences that feel effortless.
-      </p>
-      <div class="mt-8 flex flex-wrap justify-center gap-3">
-        <a
-          class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          href="mailto:hello@edmond.design"
-        >
-          hello@edmond.design
-        </a>
-        <a
-          class="inline-flex items-center gap-2 rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:border-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          href="https://www.linkedin.com"
-          rel="noreferrer"
-          target="_blank"
-        >
-          Connect on LinkedIn
-          <span aria-hidden="true">↗</span>
-        </a>
+    <section id="publications" class="grid gap-6 lg:grid-cols-2">
+      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+        <h2 class="text-2xl font-semibold text-white md:text-3xl">Publications</h2>
+        <p class="mt-2 text-sm text-slate-400">
+          Research and academic writing that guide how I design secure, scalable systems.
+        </p>
+        <div class="mt-6 space-y-6">
+          <article *ngFor="let paper of publications" class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
+            <p class="text-xs uppercase tracking-[0.3em] text-brand-200/80">{{ paper.year }} · {{ paper.outlet }}</p>
+            <h3 class="mt-3 text-lg font-semibold text-white">{{ paper.title }}</h3>
+            <p class="mt-2 text-sm text-slate-300" *ngIf="paper.note">{{ paper.note }}</p>
+            <a
+              *ngIf="paper.link"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-200 transition hover:text-brand-100"
+              [href]="paper.link"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Read publication
+              <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+
+      <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-brand-500/20 via-brand-500/10 to-white/5 p-8">
+        <h2 class="text-2xl font-semibold text-white md:text-3xl">Let&apos;s build something memorable</h2>
+        <p class="mt-3 text-sm text-slate-100/80">
+          From ML dashboards to storytelling platforms, I bring rigor, curiosity, and polish to every release.
+        </p>
+        <div class="mt-6 space-y-4">
+          <a
+            class="flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/20"
+            [href]="'mailto:' + hero.email"
+          >
+            <span>Drop me a line</span>
+            <span class="text-base" aria-hidden="true">↗</span>
+          </a>
+          <a
+            class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
+            href="https://github.com/EdmondMbadu"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span>Review my build logs on GitHub</span>
+            <span class="text-base" aria-hidden="true">🐙</span>
+          </a>
+          <a
+            class="flex items-center justify-between rounded-2xl border border-brand-400/40 bg-brand-500/20 px-6 py-4 text-sm font-semibold text-brand-50 transition hover:border-brand-300/60 hover:bg-brand-500/30"
+            href="https://www.linkedin.com/in/edmond-mbadu-245b36145/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <span>Connect on LinkedIn</span>
+            <span class="text-base" aria-hidden="true">in</span>
+          </a>
+        </div>
       </div>
     </section>
   </div>
