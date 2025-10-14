@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 export class PortfolioComponent {
   protected readonly hero = {
     name: 'Edmond Mbadu',
-    title: 'Full-Stack Engineer',
+    title: 'Software Engineer',
     summary:
       'I craft accessible, performant web experiences with a focus on component-driven UIs, thoughtful design systems, and resilient infrastructure.',
     location: 'Based in Accra, GH — collaborating remotely worldwide'
