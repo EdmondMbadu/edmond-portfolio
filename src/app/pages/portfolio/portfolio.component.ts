@@ -11,18 +11,18 @@ export class PortfolioComponent {
   protected readonly hero = {
     name: 'Edmond Mbadu',
     title: 'Software Engineer & Research Technologist',
-    tagline: 'Research-grade engineering for immersive, data-rich experiences.',
+    tagline: 'Engineering clear, intelligent experiences.',
     summary:
-      'Lead developer with an M.S. in Computer Science from Drexel University. I translate rigorous research, mathematical depth, and cloud-first engineering into expressive products—from ML dashboards to narrative-driven simulations.',
+      'Lead developer with an M.S. in Computer Science from Drexel University. I pair research depth with product craft to ship immersive platforms and tools.',
     email: 'mbadungoma@gmail.com',
     location: 'Philadelphia, PA · Remote Friendly',
-    availability: 'Open to collaborations across product engineering & intelligent interfaces.'
+    availability: 'Available for select collaborations.'
   };
 
   protected readonly heroHighlights = [
     { label: 'Current', value: 'Lead Developer · EarthGame Inc.' },
-    { label: 'Research', value: 'Journal of Mathematical Physics · 2023' },
-    { label: 'Honors', value: 'Summa Cum Laude · Chestnut Hill College' }
+    { label: 'Research', value: 'Journal of Mathematical Physics (2023)' },
+    { label: 'Honors', value: 'Summa Cum Laude · Chestnut Hill' }
   ];
 
   protected readonly socials = [
