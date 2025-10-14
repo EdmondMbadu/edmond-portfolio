@@ -68,7 +68,7 @@
           <a
             *ngFor="let social of socials"
             class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
-            href="social.url"
+            [href]="social.url"
             rel="noreferrer"
             target="_blank"
           >
