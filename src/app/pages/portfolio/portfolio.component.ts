@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -8,6 +9,15 @@ import { CommonModule } from '@angular/common';
   templateUrl: './portfolio.component.html'
 })
 export class PortfolioComponent {
+  private readonly themeService = inject(ThemeService);
+
+  protected readonly theme = this.themeService.theme;
+  protected readonly isDark = computed(() => this.theme() === 'dark');
+
+  protected toggleTheme(): void {
+    this.themeService.toggle();
+  }
+
   protected readonly hero = {
     name: 'Edmond Mbadu',
     title: 'Software Engineer & Research Technologist',

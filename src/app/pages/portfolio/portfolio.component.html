@@ -1,37 +1,54 @@
-<div class="relative isolate overflow-hidden bg-slate-950 text-slate-100">
+<div class="relative isolate overflow-hidden bg-slate-50 text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
   <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-    <div class="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-500/30 blur-3xl"></div>
-    <div class="absolute bottom-0 left-16 h-72 w-72 rounded-full bg-purple-500/25 blur-[140px]"></div>
-    <div class="absolute -bottom-20 right-12 h-80 w-80 rounded-full bg-teal-400/20 blur-[160px]"></div>
+    <div class="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-500/15 blur-3xl dark:bg-brand-500/30"></div>
+    <div class="absolute bottom-0 left-16 h-72 w-72 rounded-full bg-purple-400/15 blur-[140px] dark:bg-purple-500/25"></div>
+    <div class="absolute -bottom-20 right-12 h-80 w-80 rounded-full bg-teal-300/20 blur-[160px] dark:bg-teal-400/20"></div>
   </div>
 
-  <div class="mx-auto flex min-h-screen max-w-6xl flex-col gap-20 px-6 pb-24 pt-16 sm:px-10 lg:px-16">
-    <header class="space-y-10">
-      <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.55em] text-brand-200/80">
-        <span class="rounded-full bg-brand-500/15 px-3 py-1 text-brand-100">{{ hero.name }}</span>
-        <span class="rounded-full border border-white/15 px-3 py-1 text-white/70">{{ hero.title }}</span>
+  <div class="mx-auto flex min-h-screen max-w-6xl flex-col gap-20 px-6 pb-24 pt-16 transition-colors duration-500 sm:px-10 lg:px-16">
+    <header class="space-y-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.55em] text-brand-700 dark:text-brand-200/80">
+          <span class="rounded-full bg-brand-500/10 px-3 py-1 text-brand-700 dark:bg-brand-500/15 dark:text-brand-100">
+            {{ hero.name }}
+          </span>
+          <span class="rounded-full border border-slate-200 px-3 py-1 text-slate-600 dark:border-white/15 dark:text-white/70">
+            {{ hero.title }}
+          </span>
+        </div>
+        <button
+          type="button"
+          class="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/15 dark:bg-white/5 dark:text-slate-200 dark:hover:border-white/25 dark:hover:bg-white/10"
+          (click)="toggleTheme()"
+        >
+          <span class="text-base transition-transform duration-300 group-active:scale-90" aria-hidden="true">
+            <ng-container *ngIf="isDark(); else sun">☾</ng-container>
+            <ng-template #sun>☀︎</ng-template>
+          </span>
+          <span>{{ isDark() ? 'DARK' : 'LIGHT' }}</span>
+        </button>
       </div>
 
       <div class="space-y-5">
-        <h1 class="text-4xl font-semibold leading-tight text-white md:text-5xl lg:text-6xl">
+        <h1 class="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl lg:text-6xl dark:text-white">
           {{ hero.tagline }}
         </h1>
-        <p class="max-w-2xl text-base text-slate-300 md:text-lg">
+        <p class="max-w-2xl text-base text-slate-600 md:text-lg dark:text-slate-300">
           {{ hero.summary }}
         </p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-3 text-xs text-slate-300 md:text-sm">
-        <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
-          <span aria-hidden="true" class="h-2 w-2 rounded-full bg-emerald-400"></span>
+      <div class="flex flex-wrap items-center gap-3 text-xs text-slate-600 md:text-sm dark:text-slate-300">
+        <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 dark:border-white/15 dark:bg-white/5">
+          <span aria-hidden="true" class="h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
           {{ hero.availability }}
         </span>
-        <span class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2">
+        <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 dark:border-white/15 dark:bg-white/5">
           <span aria-hidden="true">📍</span>
           {{ hero.location }}
         </span>
         <a
-          class="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-4 py-2 text-brand-100 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300"
+          class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-2 text-brand-700 transition hover:border-brand-400/50 hover:bg-brand-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-brand-400/40 dark:bg-brand-500/15 dark:text-brand-100 dark:hover:border-brand-300/60 dark:hover:bg-brand-400/20"
           [href]="'mailto:' + hero.email"
         >
           <span aria-hidden="true">@</span>
@@ -41,7 +58,7 @@
 
       <div class="flex flex-wrap items-center gap-3">
         <a
-          class="inline-flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300"
+          class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:bg-brand-500 dark:hover:bg-brand-400"
           [href]="'mailto:' + hero.email"
         >
           Let&apos;s build
@@ -50,8 +67,8 @@
         <div class="flex flex-wrap gap-2">
           <a
             *ngFor="let social of socials"
-            class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
-            [href]="social.url"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
+            href="social.url"
             rel="noreferrer"
             target="_blank"
           >
@@ -65,38 +82,38 @@
     <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       <article
         *ngFor="let highlight of heroHighlights"
-        class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg shadow-brand-500/5 transition hover:border-brand-300/40 hover:bg-white/10"
+        class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/60 transition hover:border-brand-300/40 hover:bg-brand-50/70 dark:border-white/10 dark:bg-white/5 dark:shadow-brand-500/5 dark:hover:border-brand-300/40 dark:hover:bg-white/10"
       >
-        <p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-200/80">{{ highlight.label }}</p>
-        <p class="mt-3 text-base font-medium text-white md:text-lg">
+        <p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-700 dark:text-brand-200/80">{{ highlight.label }}</p>
+        <p class="mt-3 text-base font-medium text-slate-900 md:text-lg dark:text-white">
           {{ highlight.value }}
         </p>
       </article>
     </section>
 
     <section id="experience" class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-xl shadow-brand-500/10">
+      <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/40 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40 dark:shadow-brand-500/10">
         <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 class="text-2xl font-semibold text-white md:text-3xl">Experience</h2>
-            <p class="text-sm text-slate-400 md:text-base">
+            <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Experience</h2>
+            <p class="text-sm text-slate-500 md:text-base dark:text-slate-400">
               Engineering across research labs, high-growth teams, and community-driven organizations.
             </p>
           </div>
         </div>
-        <ol class="space-y-10 border-l border-white/10 pl-10">
+        <ol class="space-y-10 border-l border-slate-200 pl-10 dark:border-white/10">
           <li *ngFor="let item of experience" class="relative space-y-4">
-            <span class="absolute -left-[2.9rem] top-2 flex h-6 w-6 items-center justify-center rounded-full border border-brand-300/60 bg-brand-500/20">
-              <span class="h-2 w-2 rounded-full bg-brand-300"></span>
+            <span class="absolute -left-[2.9rem] top-2 flex h-6 w-6 items-center justify-center rounded-full border border-brand-400/50 bg-brand-500/15 dark:border-brand-300/60 dark:bg-brand-500/20">
+              <span class="h-2 w-2 rounded-full bg-brand-500 dark:bg-brand-300"></span>
             </span>
             <div class="flex flex-wrap items-baseline justify-between gap-3">
-              <h3 class="text-xl font-semibold text-white">{{ item.role }}</h3>
-              <span class="text-sm text-brand-200/90">{{ item.period }}</span>
+              <h3 class="text-xl font-semibold text-slate-900 dark:text-white">{{ item.role }}</h3>
+              <span class="text-sm text-brand-600 dark:text-brand-200/90">{{ item.period }}</span>
             </div>
-            <p class="text-sm text-slate-400">
+            <p class="text-sm text-slate-500 dark:text-slate-400">
               {{ item.company }} · {{ item.location }}
             </p>
-            <ul class="list-disc space-y-2 pl-5 text-sm text-slate-300">
+            <ul class="list-disc space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
               <li *ngFor="let bullet of item.bullets">
                 {{ bullet }}
               </li>
@@ -106,19 +123,19 @@
       </div>
 
       <aside class="space-y-6">
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <h3 class="text-lg font-semibold text-white">Education</h3>
-          <div *ngFor="let school of education" class="mt-5 space-y-3 border-b border-white/10 pb-5 last:border-b-0 last:pb-0">
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Education</h3>
+          <div *ngFor="let school of education" class="mt-5 space-y-3 border-b border-slate-200 pb-5 last:border-b-0 last:pb-0 dark:border-white/10">
             <div>
-              <p class="text-sm font-semibold text-brand-200/90">{{ school.degree }}</p>
-              <p class="text-base font-medium text-white">{{ school.school }}</p>
-              <p class="text-xs uppercase tracking-[0.25em] text-slate-400">{{ school.period }}</p>
-              <p class="text-xs text-slate-400">{{ school.location }}</p>
-              <p *ngIf="school.honors" class="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-200">
+              <p class="text-sm font-semibold text-brand-700 dark:text-brand-200/90">{{ school.degree }}</p>
+              <p class="text-base font-medium text-slate-900 dark:text-white">{{ school.school }}</p>
+              <p class="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">{{ school.period }}</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">{{ school.location }}</p>
+              <p *ngIf="school.honors" class="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-500 dark:text-amber-200">
                 {{ school.honors }}
               </p>
             </div>
-            <ul class="list-disc space-y-1 pl-5 text-xs text-slate-300">
+            <ul class="list-disc space-y-1 pl-5 text-xs text-slate-600 dark:text-slate-300">
               <li *ngFor="let note of school.notes">
                 {{ note }}
               </li>
@@ -126,13 +143,13 @@
           </div>
         </div>
 
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-          <h3 class="text-lg font-semibold text-white">Awards</h3>
-          <ul class="mt-4 space-y-4 text-sm text-slate-300">
-            <li *ngFor="let award of awards" class="border-b border-white/10 pb-4 last:border-b-0 last:pb-0">
-              <p class="font-semibold text-white">{{ award.title }}</p>
-              <p class="text-xs text-brand-200/80">{{ award.year }}</p>
-              <p class="mt-1 text-xs text-slate-400">{{ award.detail }}</p>
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Awards</h3>
+          <ul class="mt-4 space-y-4 text-sm text-slate-600 dark:text-slate-300">
+            <li *ngFor="let award of awards" class="border-b border-slate-200 pb-4 last:border-b-0 last:pb-0 dark:border-white/10">
+              <p class="font-semibold text-slate-900 dark:text-white">{{ award.title }}</p>
+              <p class="text-xs text-brand-600 dark:text-brand-200/80">{{ award.year }}</p>
+              <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{{ award.detail }}</p>
             </li>
           </ul>
         </div>
@@ -142,14 +159,14 @@
     <section id="projects" class="space-y-8">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
-          <h2 class="text-2xl font-semibold text-white md:text-3xl">Signature Work</h2>
-          <p class="text-sm text-slate-400 md:text-base">
+          <h2 class="text-2xl font-semibold text-slate-900 dark:text-white md:text-3xl">Signature Work</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 md:text-base">
             Platforms blending storytelling, intelligence, and meticulous engineering.
           </p>
         </div>
         <div class="flex flex-wrap gap-3">
           <a
-            class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+            class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
             href="https://github.com/EdmondMbadu"
             rel="noreferrer"
             target="_blank"
@@ -158,7 +175,7 @@
             GitHub
           </a>
           <a
-            class="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-5 py-2 text-sm font-semibold text-brand-100 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300"
+            class="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-5 py-2 text-sm font-semibold text-brand-700 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:text-brand-100"
             href="https://www.linkedin.com/in/edmond-mbadu-245b36145/"
             rel="noreferrer"
             target="_blank"
@@ -172,28 +189,28 @@
       <div class="grid gap-6 md:grid-cols-2">
         <article
           *ngFor="let project of projects"
-          class="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 transition hover:-translate-y-1 hover:border-brand-400/50 hover:bg-white/10"
+          class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 transition hover:-translate-y-1 hover:border-brand-400/50 hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900/40 dark:hover:border-brand-400/50 dark:hover:bg-slate-900/60"
         >
-          <div class="absolute inset-0 -z-10 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 transition group-hover:opacity-100"></div>
+          <div class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-100 via-transparent to-transparent opacity-0 transition group-hover:opacity-100 dark:from-white/10"></div>
           <div class="mb-4 flex flex-wrap items-center justify-between gap-4">
-            <h3 class="text-xl font-semibold text-white">{{ project.name }}</h3>
-            <div class="flex flex-wrap gap-2 text-xs text-slate-400">
-              <span *ngFor="let tech of project.stack" class="rounded-full border border-white/10 bg-white/5 px-3 py-1">
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white">{{ project.name }}</h3>
+            <div class="flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
+              <span *ngFor="let tech of project.stack" class="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-white/10 dark:bg-slate-900/60">
                 {{ tech }}
               </span>
             </div>
           </div>
-          <p class="text-sm text-slate-300">
+          <p class="text-sm text-slate-600 dark:text-slate-300">
             {{ project.description }}
           </p>
-          <ul class="mt-5 list-disc space-y-2 pl-5 text-sm text-slate-300">
+          <ul class="mt-5 list-disc space-y-2 pl-5 text-sm text-slate-600 dark:text-slate-300">
             <li *ngFor="let outcome of project.outcomes">
               {{ outcome }}
             </li>
           </ul>
           <a
             *ngIf="project.link"
-            class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-200 transition hover:text-brand-100"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-500 dark:text-brand-200 dark:hover:text-brand-100"
             [href]="project.link"
             rel="noreferrer"
             target="_blank"
@@ -205,22 +222,22 @@
       </div>
     </section>
 
-    <section id="skills" class="rounded-3xl border border-white/10 bg-white/5 p-8 shadow-lg shadow-brand-500/10">
+    <section id="skills" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40 dark:shadow-brand-500/10">
       <div class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
-          <h2 class="text-2xl font-semibold text-white md:text-3xl">Expertise</h2>
-          <p class="text-sm text-slate-400 md:text-base">
+          <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Expertise</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 md:text-base">
             Technical range from systems programming to intelligent interfaces and cloud operations.
           </p>
         </div>
       </div>
       <div class="grid gap-6 md:grid-cols-2">
-        <article *ngFor="let group of skillGroups" class="rounded-2xl border border-white/10 bg-slate-950/40 p-6">
-          <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-200/80">{{ group.category }}</h3>
+        <article *ngFor="let group of skillGroups" class="rounded-2xl border border-slate-200 bg-slate-100/60 p-6 dark:border-white/10 dark:bg-slate-900/60">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700 dark:text-brand-200/80">{{ group.category }}</h3>
           <div class="mt-4 flex flex-wrap gap-2">
             <span
               *ngFor="let item of group.items"
-              class="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-slate-200"
+              class="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-white/15 dark:bg-slate-900/60 dark:text-slate-200"
             >
               {{ item }}
             </span>
@@ -230,19 +247,19 @@
     </section>
 
     <section id="publications" class="grid gap-6 lg:grid-cols-2">
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
-        <h2 class="text-2xl font-semibold text-white md:text-3xl">Publications</h2>
-        <p class="mt-2 text-sm text-slate-400">
+      <div class="rounded-3xl border border-slate-200 bg-white p-8 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
+        <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Publications</h2>
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
           Research and academic writing that guide how I design secure, scalable systems.
         </p>
         <div class="mt-6 space-y-6">
-          <article *ngFor="let paper of publications" class="rounded-2xl border border-white/10 bg-slate-950/40 p-5">
-            <p class="text-xs uppercase tracking-[0.3em] text-brand-200/80">{{ paper.year }} · {{ paper.outlet }}</p>
-            <h3 class="mt-3 text-lg font-semibold text-white">{{ paper.title }}</h3>
-            <p class="mt-2 text-sm text-slate-300" *ngIf="paper.note">{{ paper.note }}</p>
+          <article *ngFor="let paper of publications" class="rounded-2xl border border-slate-200 bg-slate-100/60 p-5 dark:border-white/10 dark:bg-slate-900/60">
+            <p class="text-xs uppercase tracking-[0.3em] text-brand-700 dark:text-brand-200/80">{{ paper.year }} · {{ paper.outlet }}</p>
+            <h3 class="mt-3 text-lg font-semibold text-slate-900 dark:text-white">{{ paper.title }}</h3>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300" *ngIf="paper.note">{{ paper.note }}</p>
             <a
               *ngIf="paper.link"
-              class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-200 transition hover:text-brand-100"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-500 dark:text-brand-200 dark:hover:text-brand-100"
               [href]="paper.link"
               rel="noreferrer"
               target="_blank"
@@ -254,21 +271,21 @@
         </div>
       </div>
 
-      <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-brand-500/20 via-brand-500/10 to-white/5 p-8">
-        <h2 class="text-2xl font-semibold text-white md:text-3xl">Let&apos;s build something memorable</h2>
-        <p class="mt-3 text-sm text-slate-100/80">
+      <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-brand-200/40 via-brand-200/20 to-white p-8 transition-colors duration-500 dark:border-white/10 dark:bg-gradient-to-br dark:from-brand-500/20 dark:via-brand-500/10 dark:to-white/5">
+        <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Let&apos;s build something memorable</h2>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-100/80">
           From ML dashboards to storytelling platforms, I bring rigor, curiosity, and polish to every release.
         </p>
         <div class="mt-6 space-y-4">
           <a
-            class="flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-6 py-4 text-sm font-semibold text-white transition hover:border-white/40 hover:bg-white/20"
+            class="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/20"
             [href]="'mailto:' + hero.email"
           >
             <span>Drop me a line</span>
             <span class="text-base" aria-hidden="true">↗</span>
           </a>
           <a
-            class="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-6 py-4 text-sm font-semibold text-white transition hover:border-white/25 hover:bg-white/10"
+            class="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
             href="https://github.com/EdmondMbadu"
             rel="noreferrer"
             target="_blank"
@@ -277,7 +294,7 @@
             <span class="text-base" aria-hidden="true">🐙</span>
           </a>
           <a
-            class="flex items-center justify-between rounded-2xl border border-brand-400/40 bg-brand-500/20 px-6 py-4 text-sm font-semibold text-brand-50 transition hover:border-brand-300/60 hover:bg-brand-500/30"
+            class="flex items-center justify-between rounded-2xl border border-brand-400/40 bg-brand-500/15 px-6 py-4 text-sm font-semibold text-brand-700 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:text-brand-50"
             href="https://www.linkedin.com/in/edmond-mbadu-245b36145/"
             rel="noreferrer"
             target="_blank"
