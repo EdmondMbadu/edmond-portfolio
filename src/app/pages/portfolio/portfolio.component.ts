@@ -58,8 +58,9 @@ export class PortfolioComponent {
       period: 'Aug 2016 — May 2020',
       honors: 'Summa Cum Laude',
       notes: [
-        'Led partnership programs linking African & Caribbean businesses with Philadelphia.',
-        'Awarded Saint Catherine Medal and City Council Citation for community impact.'
+        'Conducted interdisciplinary mathematics and computer science research centered on cryptography and data security.',
+        'Honored with Best Student Paper recognition from the Consortium for Computing Sciences in Colleges for cryptography research.',
+        'Earned the Saint Catherine Medal and a Philadelphia City Council Citation for community leadership and impact.'
       ]
     }
   ];
