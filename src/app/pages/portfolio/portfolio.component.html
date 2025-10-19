@@ -125,7 +125,7 @@
           </p>
         </div>
         <ul class="grid gap-8 text-sm text-slate-600 sm:grid-cols-1 xl:grid-cols-2 dark:text-slate-300">
-          <li *ngFor="let item of myWork">
+          <li *ngFor="let item of myWork; index as i">
             <article
               class="group relative flex h-full flex-col gap-6 overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/80 p-8 shadow-xl shadow-brand-500/10 transition-all duration-500 hover:-translate-y-1.5 hover:border-brand-300/40 hover:shadow-3xl hover:shadow-brand-500/20 dark:border-white/5 dark:bg-slate-950/60 dark:hover:border-brand-300/50"
             >
@@ -144,74 +144,220 @@
                     aria-hidden="true"
                   >
                     <defs>
-                      <linearGradient id="grid-glow" x1="0" y1="0" x2="420" y2="180">
+                      <linearGradient [attr.id]="'grid-glow-' + i" x1="0" y1="0" x2="420" y2="180">
                         <stop stop-color="currentColor" stop-opacity="0.55" />
                         <stop offset="1" stop-color="currentColor" stop-opacity="0.05" />
                       </linearGradient>
-                      <radialGradient id="pulse-core" cx="0.5" cy="0.5" r="0.5">
+                      <radialGradient [attr.id]="'pulse-core-' + i" cx="0.5" cy="0.5" r="0.5">
                         <stop stop-color="currentColor" stop-opacity="0.9" />
                         <stop offset="0.7" stop-color="currentColor" stop-opacity="0.3" />
                         <stop offset="1" stop-color="currentColor" stop-opacity="0" />
                       </radialGradient>
+                      <radialGradient [attr.id]="'orbital-halo-' + i" cx="0.5" cy="0.45" r="0.55">
+                        <stop stop-color="currentColor" stop-opacity="0.55" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+                      </radialGradient>
+                      <linearGradient [attr.id]="'card-sheen-' + i" x1="120" y1="40" x2="300" y2="140">
+                        <stop stop-color="currentColor" stop-opacity="0.35" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0.05" />
+                      </linearGradient>
+                      <linearGradient [attr.id]="'beam-light-' + i" x1="110" y1="20" x2="320" y2="180">
+                        <stop stop-color="currentColor" stop-opacity="0.8" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0.1" />
+                      </linearGradient>
                     </defs>
                     <ng-container [ngSwitch]="item.motif">
-                      <g *ngSwitchCase="'orbitals'" stroke="url(#grid-glow)" stroke-width="0.7">
-                        <ellipse cx="210" cy="90" rx="180" ry="58" opacity="0.45"></ellipse>
-                        <ellipse cx="210" cy="90" rx="130" ry="46" opacity="0.65"></ellipse>
-                        <ellipse cx="210" cy="90" rx="80" ry="28" opacity="0.85"></ellipse>
-                        <circle cx="210" cy="90" r="4" fill="url(#pulse-core)"></circle>
-                        <circle cx="120" cy="70" r="6" fill="url(#pulse-core)"></circle>
-                        <circle cx="310" cy="120" r="7" fill="url(#pulse-core)" opacity="0.8"></circle>
-                        <path d="M40 40c40 35 90 55 170 55s130-20 170-55" opacity="0.4"></path>
-                      </g>
-                      <g *ngSwitchCase="'horizon'">
+                      <g *ngSwitchCase="'orbitals'" stroke-width="1">
+                        <circle cx="210" cy="90" r="64" [attr.fill]="'url(#orbital-halo-' + i + ')'" opacity="0.55"></circle>
+                        <circle
+                          cx="210"
+                          cy="90"
+                          r="52"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-dasharray="6 12"
+                          opacity="0.75"
+                        ></circle>
+                        <circle cx="210" cy="90" r="38" [attr.stroke]="'url(#grid-glow-' + i + ')'" opacity="0.45"></circle>
                         <path
-                          d="M0 140c60-30 120-45 210-45s150 15 210 45v40H0v-40z"
-                          fill="url(#grid-glow)"
-                          opacity="0.45"
+                          d="M82 66c44 42 92 63 128 63s84-21 128-63"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.2"
+                          opacity="0.65"
                         ></path>
                         <path
-                          d="M0 110c60-24 120-36 210-36s150 12 210 36"
-                          stroke="url(#grid-glow)"
-                          stroke-width="1.2"
+                          d="M110 122c30-52 170-70 200-12"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1"
+                          stroke-dasharray="5 8"
+                          opacity="0.6"
+                        ></path>
+                        <g [attr.fill]="'url(#pulse-core-' + i + ')'">
+                          <circle cx="210" cy="90" r="6"></circle>
+                          <circle cx="140" cy="58" r="8"></circle>
+                          <circle cx="298" cy="66" r="7"></circle>
+                          <circle cx="120" cy="120" r="6"></circle>
+                          <circle cx="310" cy="128" r="8"></circle>
+                        </g>
+                        <g [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-width="1" stroke-linecap="round">
+                          <line x1="140" y1="58" x2="210" y2="90" opacity="0.8"></line>
+                          <line x1="298" y1="66" x2="210" y2="90" opacity="0.8"></line>
+                          <line x1="120" y1="120" x2="210" y2="90" opacity="0.6"></line>
+                          <line x1="310" y1="128" x2="210" y2="90" opacity="0.6"></line>
+                        </g>
+                      </g>
+                      <g *ngSwitchCase="'horizon'">
+                        <rect
+                          x="112"
+                          y="34"
+                          width="150"
+                          height="94"
+                          rx="18"
+                          [attr.fill]="'url(#card-sheen-' + i + ')'"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.4"
+                          opacity="0.75"
+                        ></rect>
+                        <rect
+                          x="90"
+                          y="58"
+                          width="150"
+                          height="94"
+                          rx="18"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1"
+                          opacity="0.45"
+                        ></rect>
+                        <path
+                          d="M140 92h100"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="2"
+                          stroke-linecap="round"
                           opacity="0.55"
                         ></path>
                         <path
-                          d="M0 75c60-18 120-26 210-26s150 8 210 26"
-                          stroke="url(#grid-glow)"
-                          stroke-width="0.9"
-                          opacity="0.4"
+                          d="M140 118h68"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          opacity="0.35"
                         ></path>
-                        <circle cx="210" cy="45" r="32" fill="url(#pulse-core)" opacity="0.8"></circle>
-                        <circle cx="330" cy="30" r="12" fill="url(#pulse-core)" opacity="0.5"></circle>
-                      </g>
-                      <g *ngSwitchCase="'constellations'" stroke="url(#grid-glow)" stroke-width="1">
-                        <path
-                          d="M70 140l50-60 90 40 70-86 70 32"
-                          fill="none"
-                          stroke-dasharray="6 12"
-                          opacity="0.7"
-                        ></path>
-                        <g fill="url(#pulse-core)">
-                          <circle cx="70" cy="140" r="6"></circle>
-                          <circle cx="120" cy="80" r="7"></circle>
-                          <circle cx="210" cy="120" r="8"></circle>
-                          <circle cx="280" cy="34" r="9"></circle>
-                          <circle cx="350" cy="66" r="6"></circle>
+                        <g [attr.fill]="'url(#pulse-core-' + i + ')'" opacity="0.9">
+                          <circle cx="280" cy="128" r="20"></circle>
+                          <circle cx="312" cy="140" r="12" opacity="0.7"></circle>
+                          <circle cx="256" cy="138" r="10" opacity="0.5"></circle>
                         </g>
                         <path
-                          d="M20 160h380"
-                          stroke="url(#grid-glow)"
+                          d="M250 56l34 18-16 32"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          opacity="0.5"
+                        ></path>
+                        <path
+                          d="M68 148h284"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
                           stroke-width="1.4"
                           opacity="0.35"
                         ></path>
                       </g>
-                      <g *ngSwitchDefault stroke="url(#grid-glow)" stroke-width="0.9">
-                        <polygon points="50,160 160,20 260,160" fill="url(#grid-glow)" opacity="0.4"></polygon>
-                        <polygon points="160,160 270,45 370,160" fill="url(#grid-glow)" opacity="0.6"></polygon>
-                        <polygon points="110,160 210,60 310,160" fill="none" opacity="0.9"></polygon>
-                        <circle cx="210" cy="60" r="10" fill="url(#pulse-core)"></circle>
-                        <circle cx="270" cy="45" r="6" fill="url(#pulse-core)" opacity="0.6"></circle>
+                      <g *ngSwitchCase="'constellations'">
+                        <path
+                          d="M120 138c0-44 36-80 90-80s90 36 90 80"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.4"
+                          stroke-linecap="round"
+                          stroke-dasharray="10 8"
+                          opacity="0.6"
+                        ></path>
+                        <path
+                          d="M106 148h208"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.8"
+                          stroke-linecap="round"
+                          opacity="0.4"
+                        ></path>
+                        <path
+                          d="M140 132l70-70 70 70"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          opacity="0.65"
+                        ></path>
+                        <rect
+                          x="120"
+                          y="110"
+                          width="80"
+                          height="40"
+                          rx="9"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.5"
+                          [attr.fill]="'url(#card-sheen-' + i + ')'"
+                          opacity="0.65"
+                        ></rect>
+                        <rect
+                          x="220"
+                          y="110"
+                          width="80"
+                          height="40"
+                          rx="9"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.5"
+                          [attr.fill]="'url(#card-sheen-' + i + ')'"
+                          opacity="0.35"
+                        ></rect>
+                        <path
+                          d="M200 74l20-12 20 12"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.4"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          opacity="0.7"
+                        ></path>
+                        <g [attr.fill]="'url(#pulse-core-' + i + ')'" >
+                          <circle cx="160" cy="128" r="6"></circle>
+                          <circle cx="260" cy="128" r="6"></circle>
+                          <circle cx="210" cy="62" r="6"></circle>
+                          <circle cx="188" cy="90" r="5" opacity="0.6"></circle>
+                          <circle cx="232" cy="90" r="5" opacity="0.6"></circle>
+                        </g>
+                      </g>
+                      <g *ngSwitchDefault>
+                        <polygon
+                          points="80,150 200,30 320,150"
+                          [attr.fill]="'url(#beam-light-' + i + ')'"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.2"
+                          opacity="0.75"
+                        ></polygon>
+                        <polygon
+                          points="140,150 220,60 300,150"
+                          fill="none"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1"
+                          stroke-dasharray="6 10"
+                          opacity="0.6"
+                        ></polygon>
+                        <path
+                          d="M200 30l24 24"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.4"
+                          stroke-linecap="round"
+                        ></path>
+                        <path
+                          d="M110 150h220"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          opacity="0.35"
+                        ></path>
+                        <g [attr.fill]="'url(#pulse-core-' + i + ')'">
+                          <circle cx="200" cy="30" r="10"></circle>
+                          <circle cx="224" cy="54" r="7" opacity="0.7"></circle>
+                          <circle cx="140" cy="150" r="6" opacity="0.6"></circle>
+                          <circle cx="280" cy="150" r="6" opacity="0.6"></circle>
+                        </g>
                       </g>
                     </ng-container>
                   </svg>
