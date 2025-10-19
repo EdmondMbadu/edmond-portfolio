@@ -106,6 +106,150 @@
       </article>
     </section>
 
+    <section
+      class="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white/70 px-10 py-16 shadow-2xl shadow-brand-500/10 backdrop-blur-md transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/50 dark:shadow-brand-500/5 sm:px-14"
+    >
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-gradient-to-br from-brand-400/30 via-cyan-300/15 to-purple-500/30 blur-[120px] dark:from-brand-300/35 dark:via-cyan-400/20 dark:to-purple-400/30"></div>
+        <div class="absolute -right-16 -bottom-24 h-96 w-96 rounded-full bg-gradient-to-br from-indigo-400/30 via-teal-400/20 to-emerald-400/30 blur-[140px] dark:from-indigo-300/35 dark:via-teal-300/25 dark:to-emerald-300/30"></div>
+        <div class="absolute left-1/2 top-1/2 h-48 w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-white/10 blur-[160px] dark:border-white/5 dark:bg-white/5"></div>
+      </div>
+      <div class="relative mx-auto flex max-w-5xl flex-col gap-12">
+        <div class="space-y-4 text-center">
+          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-600 dark:text-brand-200/80">{{ myWorkIntro.title }}</p>
+          <h2 class="text-3xl font-semibold text-slate-900 md:text-[2.5rem] md:leading-none dark:text-white">
+            Building immersive, purposeful ecosystems
+          </h2>
+          <p class="mx-auto max-w-3xl text-base text-slate-600 md:text-lg dark:text-slate-300">
+            {{ myWorkIntro.bio }}
+          </p>
+        </div>
+        <ul class="grid gap-8 text-sm text-slate-600 sm:grid-cols-1 xl:grid-cols-2 dark:text-slate-300">
+          <li *ngFor="let item of myWork">
+            <article
+              class="group relative flex h-full flex-col gap-6 overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/80 p-8 shadow-xl shadow-brand-500/10 transition-all duration-500 hover:-translate-y-1.5 hover:border-brand-300/40 hover:shadow-3xl hover:shadow-brand-500/20 dark:border-white/5 dark:bg-slate-950/60 dark:hover:border-brand-300/50"
+            >
+              <div
+                class="absolute inset-0 opacity-70 blur-3xl transition duration-700 group-hover:opacity-90"
+                [ngClass]="['bg-gradient-to-br', item.visual.from, item.visual.via, item.visual.to]"
+                aria-hidden="true"
+              ></div>
+              <div class="relative flex flex-col gap-6">
+                <figure class="relative overflow-hidden rounded-2xl bg-white/60 p-6 shadow-inner shadow-white/30 dark:bg-white/10 dark:shadow-white/5">
+                  <div class="absolute inset-0 bg-gradient-to-br from-white/60 via-white/20 to-transparent mix-blend-overlay dark:from-white/10 dark:via-white/5"></div>
+                  <svg
+                    class="relative h-40 w-full text-brand-600/70 transition-transform duration-500 group-hover:scale-[1.02] dark:text-brand-300/70"
+                    viewBox="0 0 420 180"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <defs>
+                      <linearGradient id="grid-glow" x1="0" y1="0" x2="420" y2="180">
+                        <stop stop-color="currentColor" stop-opacity="0.55" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0.05" />
+                      </linearGradient>
+                      <radialGradient id="pulse-core" cx="0.5" cy="0.5" r="0.5">
+                        <stop stop-color="currentColor" stop-opacity="0.9" />
+                        <stop offset="0.7" stop-color="currentColor" stop-opacity="0.3" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+                      </radialGradient>
+                    </defs>
+                    <ng-container [ngSwitch]="item.motif">
+                      <g *ngSwitchCase="'orbitals'" stroke="url(#grid-glow)" stroke-width="0.7">
+                        <ellipse cx="210" cy="90" rx="180" ry="58" opacity="0.45"></ellipse>
+                        <ellipse cx="210" cy="90" rx="130" ry="46" opacity="0.65"></ellipse>
+                        <ellipse cx="210" cy="90" rx="80" ry="28" opacity="0.85"></ellipse>
+                        <circle cx="210" cy="90" r="4" fill="url(#pulse-core)"></circle>
+                        <circle cx="120" cy="70" r="6" fill="url(#pulse-core)"></circle>
+                        <circle cx="310" cy="120" r="7" fill="url(#pulse-core)" opacity="0.8"></circle>
+                        <path d="M40 40c40 35 90 55 170 55s130-20 170-55" opacity="0.4"></path>
+                      </g>
+                      <g *ngSwitchCase="'horizon'">
+                        <path
+                          d="M0 140c60-30 120-45 210-45s150 15 210 45v40H0v-40z"
+                          fill="url(#grid-glow)"
+                          opacity="0.45"
+                        ></path>
+                        <path
+                          d="M0 110c60-24 120-36 210-36s150 12 210 36"
+                          stroke="url(#grid-glow)"
+                          stroke-width="1.2"
+                          opacity="0.55"
+                        ></path>
+                        <path
+                          d="M0 75c60-18 120-26 210-26s150 8 210 26"
+                          stroke="url(#grid-glow)"
+                          stroke-width="0.9"
+                          opacity="0.4"
+                        ></path>
+                        <circle cx="210" cy="45" r="32" fill="url(#pulse-core)" opacity="0.8"></circle>
+                        <circle cx="330" cy="30" r="12" fill="url(#pulse-core)" opacity="0.5"></circle>
+                      </g>
+                      <g *ngSwitchCase="'constellations'" stroke="url(#grid-glow)" stroke-width="1">
+                        <path
+                          d="M70 140l50-60 90 40 70-86 70 32"
+                          fill="none"
+                          stroke-dasharray="6 12"
+                          opacity="0.7"
+                        ></path>
+                        <g fill="url(#pulse-core)">
+                          <circle cx="70" cy="140" r="6"></circle>
+                          <circle cx="120" cy="80" r="7"></circle>
+                          <circle cx="210" cy="120" r="8"></circle>
+                          <circle cx="280" cy="34" r="9"></circle>
+                          <circle cx="350" cy="66" r="6"></circle>
+                        </g>
+                        <path
+                          d="M20 160h380"
+                          stroke="url(#grid-glow)"
+                          stroke-width="1.4"
+                          opacity="0.35"
+                        ></path>
+                      </g>
+                      <g *ngSwitchDefault stroke="url(#grid-glow)" stroke-width="0.9">
+                        <polygon points="50,160 160,20 260,160" fill="url(#grid-glow)" opacity="0.4"></polygon>
+                        <polygon points="160,160 270,45 370,160" fill="url(#grid-glow)" opacity="0.6"></polygon>
+                        <polygon points="110,160 210,60 310,160" fill="none" opacity="0.9"></polygon>
+                        <circle cx="210" cy="60" r="10" fill="url(#pulse-core)"></circle>
+                        <circle cx="270" cy="45" r="6" fill="url(#pulse-core)" opacity="0.6"></circle>
+                      </g>
+                    </ng-container>
+                  </svg>
+                </figure>
+                <div class="flex flex-col gap-2">
+                  <p class="text-xs font-semibold uppercase tracking-[0.35em] text-brand-700 dark:text-brand-200/80">
+                    {{ item.status }}
+                  </p>
+                  <h3 class="text-2xl font-semibold text-slate-900 dark:text-white">{{ item.name }}</h3>
+                  <p class="text-sm text-slate-500 dark:text-slate-400">{{ item.tagline }}</p>
+                </div>
+                <p class="text-base leading-relaxed text-slate-600 dark:text-slate-300">
+                  {{ item.description }}
+                </p>
+                <div class="mt-auto pt-2">
+                  <a
+                    *ngIf="item.link; else comingSoon"
+                    class="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 transition hover:text-brand-500 dark:text-brand-200/80 dark:hover:text-brand-100"
+                    [href]="item.link"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Visit experience
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                  <ng-template #comingSoon>
+                    <span class="inline-flex items-center gap-2 rounded-full border border-brand-500/50 bg-brand-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-brand-700 dark:border-brand-400/40 dark:bg-brand-500/15 dark:text-brand-100">
+                      Coming soon
+                    </span>
+                  </ng-template>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <section id="experience" class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
       <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/40 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40 dark:shadow-brand-500/10">
         <div class="mb-6 flex flex-wrap items-end justify-between gap-3">

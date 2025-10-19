@@ -40,6 +40,50 @@ export class PortfolioComponent {
     { name: 'LinkedIn', icon: 'in', url: 'https://www.linkedin.com/in/edmond-mbadu-245b36145/' }
   ];
 
+  protected readonly myWorkIntro = {
+    title: 'My Work',
+    bio: 'I craft story-driven platforms that merge research rigor, community insight, and immersive design to move ideas into the world.'
+  };
+
+  protected readonly myWork = [
+    {
+      name: 'NewWorld Game',
+      tagline: 'Global problem-solving network',
+      description: 'An online experience that unites communities to prototype solutions for global and local challenges.',
+      link: 'https://newworld-game.org/',
+      status: 'Live',
+      visual: { from: 'from-cyan-500/60', via: 'via-sky-500/40', to: 'to-indigo-500/60' },
+      motif: 'orbitals'
+    },
+    {
+      name: 'Kank',
+      tagline: 'Microfinance for African entrepreneurs',
+      description: 'A lending companion that unlocks microfinance access and portfolio visibility for African small business owners.',
+      link: 'https://kank-4bbbc.web.app/',
+      status: 'Live',
+      visual: { from: 'from-emerald-500/60', via: 'via-teal-400/40', to: 'to-blue-500/60' },
+      motif: 'horizon'
+    },
+    {
+      name: 'Kank Learning',
+      tagline: 'Skilling for the Kank ecosystem',
+      description: 'A learning portal that equips the Kank community with coaching, playbooks, and adaptive curriculum.',
+      link: 'https://kank-learning.web.app/',
+      status: 'Live',
+      visual: { from: 'from-amber-500/60', via: 'via-orange-400/40', to: 'to-rose-500/60' },
+      motif: 'constellations'
+    },
+    {
+      name: 'SocratiLens',
+      tagline: 'Foresight analytics studio',
+      description: 'An in-progress platform experimenting with AI-guided discovery for civic research teams.',
+      link: null,
+      status: 'In development',
+      visual: { from: 'from-fuchsia-500/60', via: 'via-purple-500/40', to: 'to-slate-500/60' },
+      motif: 'prism'
+    }
+  ];
+
   protected readonly education = [
     {
       school: 'Drexel University',
