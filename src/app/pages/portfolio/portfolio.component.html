@@ -1,26 +1,32 @@
-<div class="relative isolate overflow-hidden bg-slate-50 text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
+<div
+  class="relative isolate overflow-hidden bg-slate-50 text-slate-900 transition-colors duration-500 dark:bg-slate-950 dark:text-slate-100">
   <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-    <div class="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-500/15 blur-3xl dark:bg-brand-500/30"></div>
-    <div class="absolute bottom-0 left-16 h-72 w-72 rounded-full bg-purple-400/15 blur-[140px] dark:bg-purple-500/25"></div>
-    <div class="absolute -bottom-20 right-12 h-80 w-80 rounded-full bg-teal-300/20 blur-[160px] dark:bg-teal-400/20"></div>
+    <div
+      class="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-500/15 blur-3xl dark:bg-brand-500/30">
+    </div>
+    <div class="absolute bottom-0 left-16 h-72 w-72 rounded-full bg-purple-400/15 blur-[140px] dark:bg-purple-500/25">
+    </div>
+    <div class="absolute -bottom-20 right-12 h-80 w-80 rounded-full bg-teal-300/20 blur-[160px] dark:bg-teal-400/20">
+    </div>
   </div>
 
-  <div class="mx-auto flex min-h-screen max-w-6xl flex-col gap-20 px-6 pb-24 pt-16 transition-colors duration-500 sm:px-10 lg:px-16">
+  <div
+    class="mx-auto flex min-h-screen max-w-6xl flex-col gap-20 px-6 pb-24 pt-16 transition-colors duration-500 sm:px-10 lg:px-16">
     <header class="space-y-8">
       <div class="flex flex-wrap items-center justify-between gap-4">
-        <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.55em] text-brand-700 dark:text-brand-200/80">
+        <div
+          class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.55em] text-brand-700 dark:text-brand-200/80">
           <span class="rounded-full bg-brand-500/10 px-3 py-1 text-brand-700 dark:bg-brand-500/15 dark:text-brand-100">
             {{ hero.name }}
           </span>
-          <span class="rounded-full border border-slate-200 px-3 py-1 text-slate-600 dark:border-white/15 dark:text-white/70">
+          <span
+            class="rounded-full border border-slate-200 px-3 py-1 text-slate-600 dark:border-white/15 dark:text-white/70">
             {{ hero.title }}
           </span>
         </div>
-        <button
-          type="button"
+        <button type="button"
           class="group inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/15 dark:bg-white/5 dark:text-slate-200 dark:hover:border-white/25 dark:hover:bg-white/10"
-          (click)="toggleTheme()"
-        >
+          (click)="toggleTheme()">
           <span class="text-base transition-transform duration-300 group-active:scale-90" aria-hidden="true">
             <ng-container *ngIf="isDark(); else sun">☾</ng-container>
             <ng-template #sun>☀︎</ng-template>
@@ -39,51 +45,39 @@
       </div>
 
       <div class="flex flex-wrap items-center gap-3 text-xs text-slate-600 md:text-sm dark:text-slate-300">
-        <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 dark:border-white/15 dark:bg-white/5">
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 dark:border-white/15 dark:bg-white/5">
           <span aria-hidden="true" class="h-2 w-2 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
           {{ hero.availability }}
         </span>
-        <span class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 dark:border-white/15 dark:bg-white/5">
+        <span
+          class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2 dark:border-white/15 dark:bg-white/5">
           <span aria-hidden="true">📍</span>
           {{ hero.location }}
         </span>
-        <a
-          class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-2 text-brand-700 transition hover:border-brand-400/50 hover:bg-brand-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-brand-400/40 dark:bg-brand-500/15 dark:text-brand-100 dark:hover:border-brand-300/60 dark:hover:bg-brand-400/20"
-          [href]="'mailto:' + hero.email"
-        >
+        <a class="inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10 px-4 py-2 text-brand-700 transition hover:border-brand-400/50 hover:bg-brand-500/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-brand-400/40 dark:bg-brand-500/15 dark:text-brand-100 dark:hover:border-brand-300/60 dark:hover:bg-brand-400/20"
+          [href]="'mailto:' + hero.email">
           <span aria-hidden="true">@</span>
           {{ hero.email }}
         </a>
       </div>
 
       <div class="flex flex-wrap items-center gap-3">
-        <a
-          class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 bg-brand-500 hover:bg-brand-700 dark:hover:bg-brand-400"
-          [href]="'mailto:' + hero.email"
-        >
+        <a class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 bg-brand-500 hover:bg-brand-700 dark:hover:bg-brand-400"
+          [href]="'mailto:' + hero.email">
           Let&apos;s build
           <span aria-hidden="true">↗</span>
         </a>
         <div class="flex flex-wrap gap-2">
-          <a
-            *ngFor="let social of socials"
+          <a *ngFor="let social of socials"
             class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
-            [href]="social.url"
-            rel="noreferrer"
-            target="_blank"
-          >
+            [href]="social.url" rel="noreferrer" target="_blank">
             <span aria-hidden="true" class="flex h-4 w-4 items-center justify-center">
               <ng-container [ngSwitch]="social.name">
-                <svg
-                  *ngSwitchCase="'GitHub'"
-                  aria-hidden="true"
-                  class="h-4 w-4"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
+                <svg *ngSwitchCase="'GitHub'" aria-hidden="true" class="h-4 w-4" viewBox="0 0 24 24"
+                  fill="currentColor">
                   <path
-                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.469-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.046.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.24 2.873.117 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.624-5.476 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                  />
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.469-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.046.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.24 2.873.117 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.624-5.476 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                 </svg>
                 <span *ngSwitchDefault>{{ social.icon }}</span>
               </ng-container>
@@ -95,11 +89,10 @@
     </header>
 
     <section class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-      <article
-        *ngFor="let highlight of heroHighlights"
-        class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/60 transition hover:border-brand-300/40 hover:bg-brand-50/70 dark:border-white/10 dark:bg-white/5 dark:shadow-brand-500/5 dark:hover:border-brand-300/40 dark:hover:bg-white/10"
-      >
-        <p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-700 dark:text-brand-200/80">{{ highlight.label }}</p>
+      <article *ngFor="let highlight of heroHighlights"
+        class="rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-200/60 transition hover:border-brand-300/40 hover:bg-brand-50/70 dark:border-white/10 dark:bg-white/5 dark:shadow-brand-500/5 dark:hover:border-brand-300/40 dark:hover:bg-white/10">
+        <p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-700 dark:text-brand-200/80">{{
+          highlight.label }}</p>
         <p class="mt-3 text-base font-medium text-slate-900 md:text-lg dark:text-white">
           {{ highlight.value }}
         </p>
@@ -107,16 +100,22 @@
     </section>
 
     <section
-      class="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white/70 px-10 py-16 shadow-2xl shadow-brand-500/10 backdrop-blur-md transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/50 dark:shadow-brand-500/5 sm:px-14"
-    >
+      class="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white/70 px-10 py-16 shadow-2xl shadow-brand-500/10 backdrop-blur-md transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/50 dark:shadow-brand-500/5 sm:px-14">
       <div class="pointer-events-none absolute inset-0 overflow-hidden">
-        <div class="absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-gradient-to-br from-brand-400/30 via-cyan-300/15 to-purple-500/30 blur-[120px] dark:from-brand-300/35 dark:via-cyan-400/20 dark:to-purple-400/30"></div>
-        <div class="absolute -right-16 -bottom-24 h-96 w-96 rounded-full bg-gradient-to-br from-indigo-400/30 via-teal-400/20 to-emerald-400/30 blur-[140px] dark:from-indigo-300/35 dark:via-teal-300/25 dark:to-emerald-300/30"></div>
-        <div class="absolute left-1/2 top-1/2 h-48 w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-white/10 blur-[160px] dark:border-white/5 dark:bg-white/5"></div>
+        <div
+          class="absolute -left-32 top-1/4 h-80 w-80 rounded-full bg-gradient-to-br from-brand-400/30 via-cyan-300/15 to-purple-500/30 blur-[120px] dark:from-brand-300/35 dark:via-cyan-400/20 dark:to-purple-400/30">
+        </div>
+        <div
+          class="absolute -right-16 -bottom-24 h-96 w-96 rounded-full bg-gradient-to-br from-indigo-400/30 via-teal-400/20 to-emerald-400/30 blur-[140px] dark:from-indigo-300/35 dark:via-teal-300/25 dark:to-emerald-300/30">
+        </div>
+        <div
+          class="absolute left-1/2 top-1/2 h-48 w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-white/10 blur-[160px] dark:border-white/5 dark:bg-white/5">
+        </div>
       </div>
       <div class="relative mx-auto flex max-w-5xl flex-col gap-12">
         <div class="space-y-4 text-center">
-          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-600 dark:text-brand-200/80">{{ myWorkIntro.title }}</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.4em] text-brand-600 dark:text-brand-200/80">{{
+            myWorkIntro.title }}</p>
           <h2 class="text-3xl font-semibold text-slate-900 md:text-[2.5rem] md:leading-none dark:text-white">
             Building immersive, purposeful ecosystems
           </h2>
@@ -127,26 +126,19 @@
         <ul class="mx-auto grid w-full max-w-5xl grid-cols-1 gap-14 text-slate-600 dark:text-slate-300 lg:grid-cols-2">
           <li *ngFor="let item of myWork; index as i">
             <article
-              class="group relative flex h-full flex-col overflow-hidden rounded-[2.4rem] border border-white/30 bg-white/40 shadow-2xl shadow-brand-500/20 backdrop-blur-2xl transition-all duration-700 hover:-translate-y-2 hover:border-brand-300/60 hover:bg-white/55 hover:shadow-[0_40px_120px_-40px] hover:shadow-brand-500/40 dark:border-white/10 dark:bg-slate-950/45 dark:hover:border-brand-200/50 dark:hover:bg-slate-950/65"
-            >
-              <div
-                class="absolute inset-0 opacity-70 blur-[120px] transition duration-700 group-hover:opacity-95"
-                [ngClass]="['bg-gradient-to-br', item.visual.from, item.visual.via, item.visual.to]"
-                aria-hidden="true"
-              ></div>
+              class="group relative flex h-full flex-col overflow-hidden rounded-[2.4rem] border border-white/30 bg-white/40 shadow-2xl shadow-brand-500/20 backdrop-blur-2xl transition-all duration-700 hover:-translate-y-2 hover:border-brand-300/60 hover:bg-white/55 hover:shadow-[0_40px_120px_-40px] hover:shadow-brand-500/40 dark:border-white/10 dark:bg-slate-950/45 dark:hover:border-brand-200/50 dark:hover:bg-slate-950/65">
+              <div class="absolute inset-0 opacity-70 blur-[120px] transition duration-700 group-hover:opacity-95"
+                [ngClass]="['bg-gradient-to-br', item.visual.from, item.visual.via, item.visual.to]" aria-hidden="true">
+              </div>
               <div class="relative flex flex-col">
                 <figure
-                  class="relative aspect-[7/4] w-full overflow-hidden rounded-[2.4rem] border border-white/35 bg-white/10 p-10 shadow-inner shadow-white/40 backdrop-blur-lg transition duration-700 group-hover:border-white/60 dark:border-white/10 dark:bg-white/5 dark:shadow-white/10"
-                >
+                  class="relative aspect-[7/4] w-full overflow-hidden rounded-[2.4rem] border border-white/35 bg-white/10 p-10 shadow-inner shadow-white/40 backdrop-blur-lg transition duration-700 group-hover:border-white/60 dark:border-white/10 dark:bg-white/5 dark:shadow-white/10">
                   <div
-                    class="absolute inset-0 bg-gradient-to-br from-white/60 via-white/10 to-transparent mix-blend-screen dark:from-white/10 dark:via-white/5"
-                  ></div>
+                    class="absolute inset-0 bg-gradient-to-br from-white/60 via-white/10 to-transparent mix-blend-screen dark:from-white/10 dark:via-white/5">
+                  </div>
                   <svg
                     class="relative h-full w-full text-brand-600/80 transition-transform duration-[900ms] group-hover:scale-[1.05] group-hover:rotate-[0.6deg] dark:text-brand-200/80"
-                    viewBox="0 0 420 180"
-                    fill="none"
-                    aria-hidden="true"
-                  >
+                    viewBox="0 0 420 180" fill="none" aria-hidden="true">
                     <defs>
                       <linearGradient [attr.id]="'grid-glow-' + i" x1="0" y1="0" x2="420" y2="180">
                         <stop stop-color="currentColor" stop-opacity="0.55" />
@@ -224,37 +216,50 @@
                       <g *ngSwitchCase="'orbitals'">
                         <g opacity="0.1">
                           <rect x="58" y="38" width="304" height="104" rx="52" fill="currentColor">
-                            <animate attributeName="opacity" values="0.05;0.18;0.05" dur="14s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.05;0.18;0.05" dur="14s" repeatCount="indefinite">
+                            </animate>
                           </rect>
                         </g>
                         <g [attr.filter]="'url(#soft-glow-' + i + ')'">
                           <circle cx="210" cy="90" r="56" [attr.fill]="'url(#orbital-halo-' + i + ')'" opacity="0.65">
-                            <animate attributeName="opacity" values="0.35;0.75;0.35" dur="16s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.35;0.75;0.35" dur="16s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                         </g>
-                        <circle cx="210" cy="90" r="54" fill="none" [attr.stroke]="'url(#orbit-trail-' + i + ')'" stroke-width="1.6" stroke-dasharray="8 16">
-                          <animate attributeName="stroke-dashoffset" values="0;320" dur="24s" repeatCount="indefinite"></animate>
+                        <circle cx="210" cy="90" r="54" fill="none" [attr.stroke]="'url(#orbit-trail-' + i + ')'"
+                          stroke-width="1.6" stroke-dasharray="8 16">
+                          <animate attributeName="stroke-dashoffset" values="0;320" dur="24s" repeatCount="indefinite">
+                          </animate>
                         </circle>
-                        <ellipse cx="210" cy="90" rx="150" ry="60" fill="none" [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-dasharray="18 24" opacity="0.35">
-                          <animateTransform attributeName="transform" type="rotate" from="0 210 90" to="360 210 90" dur="30s" repeatCount="indefinite"></animateTransform>
+                        <ellipse cx="210" cy="90" rx="150" ry="60" fill="none"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-dasharray="18 24" opacity="0.35">
+                          <animateTransform attributeName="transform" type="rotate" from="0 210 90" to="360 210 90"
+                            dur="30s" repeatCount="indefinite"></animateTransform>
                         </ellipse>
-                        <ellipse cx="210" cy="90" rx="110" ry="42" fill="none" [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-dasharray="10 18" opacity="0.55">
-                          <animateTransform attributeName="transform" type="rotate" from="360 210 90" to="0 210 90" dur="18s" repeatCount="indefinite"></animateTransform>
+                        <ellipse cx="210" cy="90" rx="110" ry="42" fill="none"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-dasharray="10 18" opacity="0.55">
+                          <animateTransform attributeName="transform" type="rotate" from="360 210 90" to="0 210 90"
+                            dur="18s" repeatCount="indefinite"></animateTransform>
                         </ellipse>
-                        <g [attr.stroke]="'url(#orbit-trail-' + i + ')'" stroke-width="1.2" stroke-linecap="round" opacity="0.45">
+                        <g [attr.stroke]="'url(#orbit-trail-' + i + ')'" stroke-width="1.2" stroke-linecap="round"
+                          opacity="0.45">
                           <path d="M70 64c42 32 88 49 140 49s98-17 140-49">
-                            <animate attributeName="stroke-dashoffset" values="0;-280" dur="20s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;-280" dur="20s"
+                              repeatCount="indefinite"></animate>
                           </path>
                           <path d="M92 122c48-26 78-36 118-36s70 10 118 36">
-                            <animate attributeName="stroke-dashoffset" values="0;240" dur="16s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;240" dur="16s"
+                              repeatCount="indefinite"></animate>
                           </path>
                         </g>
                         <g opacity="0.6" [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-width="0.8">
                           <path d="M210 34v112">
-                            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="12s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="12s" repeatCount="indefinite">
+                            </animate>
                           </path>
                           <path d="M92 90h236">
-                            <animate attributeName="opacity" values="0.15;0.55;0.15" dur="10s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.15;0.55;0.15" dur="10s" repeatCount="indefinite">
+                            </animate>
                           </path>
                         </g>
                         <g [attr.fill]="'url(#sparkle-' + i + ')'" opacity="0.95">
@@ -262,102 +267,134 @@
                             <animate attributeName="r" values="5;9;5" dur="9s" repeatCount="indefinite"></animate>
                           </circle>
                           <circle cx="130" cy="62" r="6">
-                            <animate attributeName="opacity" values="0.3;1;0.3" dur="7s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.3;1;0.3" dur="7s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                           <circle cx="290" cy="118" r="6">
-                            <animate attributeName="opacity" values="1;0.4;1" dur="8s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="1;0.4;1" dur="8s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                         </g>
                         <g fill="currentColor" opacity="0.45">
                           <circle r="4">
-                            <animateMotion dur="14s" repeatCount="indefinite" rotate="auto" path="M210 90 m-120 0 a120 64 0 1 1 240 0 a120 64 0 1 1 -240 0"></animateMotion>
+                            <animateMotion dur="14s" repeatCount="indefinite" rotate="auto"
+                              path="M210 90 m-120 0 a120 64 0 1 1 240 0 a120 64 0 1 1 -240 0"></animateMotion>
                           </circle>
                           <circle r="3">
-                            <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" path="M210 90 m-90 0 a90 36 0 1 1 180 0 a90 36 0 1 1 -180 0"></animateMotion>
+                            <animateMotion dur="10s" repeatCount="indefinite" rotate="auto"
+                              path="M210 90 m-90 0 a90 36 0 1 1 180 0 a90 36 0 1 1 -180 0"></animateMotion>
                           </circle>
                           <circle r="2.5">
-                            <animateMotion dur="18s" repeatCount="indefinite" rotate="auto" path="M210 90 m0 -70 a62 70 0 1 1 0 140 a62 70 0 1 1 0 -140"></animateMotion>
+                            <animateMotion dur="18s" repeatCount="indefinite" rotate="auto"
+                              path="M210 90 m0 -70 a62 70 0 1 1 0 140 a62 70 0 1 1 0 -140"></animateMotion>
                           </circle>
                         </g>
-                        <g opacity="0.3" stroke="currentColor" stroke-width="0.6" stroke-linecap="round" stroke-dasharray="2 10">
+                        <g opacity="0.3" stroke="currentColor" stroke-width="0.6" stroke-linecap="round"
+                          stroke-dasharray="2 10">
                           <circle cx="210" cy="90" r="30">
-                            <animate attributeName="stroke-dashoffset" values="0;160" dur="12s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;160" dur="12s"
+                              repeatCount="indefinite"></animate>
                           </circle>
                           <circle cx="210" cy="90" r="18">
-                            <animate attributeName="stroke-dashoffset" values="0;-120" dur="8s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;-120" dur="8s"
+                              repeatCount="indefinite"></animate>
                           </circle>
                         </g>
                       </g>
                       <g *ngSwitchCase="'horizon'">
                         <g [attr.filter]="'url(#card-glow-' + i + ')'">
-                          <rect x="118" y="44" width="156" height="96" rx="22" [attr.fill]="'url(#card-sheen-' + i + ')'" opacity="0.85"></rect>
+                          <rect x="118" y="44" width="156" height="96" rx="22"
+                            [attr.fill]="'url(#card-sheen-' + i + ')'" opacity="0.85"></rect>
                         </g>
                         <rect x="102" y="58" width="156" height="96" rx="22" fill="currentColor" opacity="0.08">
-                          <animate attributeName="opacity" values="0.05;0.16;0.05" dur="14s" repeatCount="indefinite"></animate>
+                          <animate attributeName="opacity" values="0.05;0.16;0.05" dur="14s" repeatCount="indefinite">
+                          </animate>
                         </rect>
                         <rect x="88" y="74" width="156" height="96" rx="22" fill="currentColor" opacity="0.05"></rect>
-                        <g [attr.stroke]="'url(#flow-gradient-' + i + ')'" stroke-width="3" stroke-linecap="round" stroke-dasharray="12 20" opacity="0.4">
+                        <g [attr.stroke]="'url(#flow-gradient-' + i + ')'" stroke-width="3" stroke-linecap="round"
+                          stroke-dasharray="12 20" opacity="0.4">
                           <path d="M86 120c36-24 86-36 124-36s68 12 114 36">
-                            <animate attributeName="stroke-dashoffset" values="0;-320" dur="18s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;-320" dur="18s"
+                              repeatCount="indefinite"></animate>
                           </path>
                           <path d="M90 138c40-16 90-24 130-24s74 8 118 24">
-                            <animate attributeName="stroke-dashoffset" values="0;260" dur="20s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;260" dur="20s"
+                              repeatCount="indefinite"></animate>
                           </path>
                         </g>
-                        <g [attr.stroke]="'url(#flow-gradient-' + i + ')'" stroke-linecap="round" stroke-width="4" opacity="0.6">
+                        <g [attr.stroke]="'url(#flow-gradient-' + i + ')'" stroke-linecap="round" stroke-width="4"
+                          opacity="0.6">
                           <path d="M108 102c22 8 52 12 84 12s62-4 96-14" stroke-dasharray="18 22">
-                            <animate attributeName="stroke-dashoffset" values="0;180" dur="10s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;180" dur="10s"
+                              repeatCount="indefinite"></animate>
                           </path>
                         </g>
                         <g fill="currentColor" opacity="0.22">
                           <rect x="132" y="112" width="12" height="26" rx="4">
-                            <animate attributeName="height" values="22;38;22" dur="6s" repeatCount="indefinite"></animate>
+                            <animate attributeName="height" values="22;38;22" dur="6s" repeatCount="indefinite">
+                            </animate>
                             <animate attributeName="y" values="118;100;118" dur="6s" repeatCount="indefinite"></animate>
                           </rect>
                           <rect x="152" y="118" width="12" height="32" rx="4">
-                            <animate attributeName="height" values="28;18;28" dur="5.5s" repeatCount="indefinite"></animate>
-                            <animate attributeName="y" values="118;128;118" dur="5.5s" repeatCount="indefinite"></animate>
+                            <animate attributeName="height" values="28;18;28" dur="5.5s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="y" values="118;128;118" dur="5.5s" repeatCount="indefinite">
+                            </animate>
                           </rect>
                           <rect x="172" y="110" width="12" height="30" rx="4">
-                            <animate attributeName="height" values="26;42;26" dur="7s" repeatCount="indefinite"></animate>
+                            <animate attributeName="height" values="26;42;26" dur="7s" repeatCount="indefinite">
+                            </animate>
                             <animate attributeName="y" values="116;94;116" dur="7s" repeatCount="indefinite"></animate>
                           </rect>
                           <rect x="192" y="116" width="12" height="34" rx="4">
-                            <animate attributeName="height" values="30;18;30" dur="6.5s" repeatCount="indefinite"></animate>
-                            <animate attributeName="y" values="116;128;116" dur="6.5s" repeatCount="indefinite"></animate>
+                            <animate attributeName="height" values="30;18;30" dur="6.5s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="y" values="116;128;116" dur="6.5s" repeatCount="indefinite">
+                            </animate>
                           </rect>
                         </g>
                         <g fill="currentColor" opacity="0.35">
                           <circle r="4">
-                            <animateMotion dur="9s" repeatCount="indefinite" rotate="auto" path="M92 132 c60-30 120-30 220 0"></animateMotion>
+                            <animateMotion dur="9s" repeatCount="indefinite" rotate="auto"
+                              path="M92 132 c60-30 120-30 220 0"></animateMotion>
                           </circle>
                           <circle r="3">
-                            <animateMotion dur="12s" repeatCount="indefinite" rotate="auto" path="M104 118 c40-18 90-18 176 0"></animateMotion>
+                            <animateMotion dur="12s" repeatCount="indefinite" rotate="auto"
+                              path="M104 118 c40-18 90-18 176 0"></animateMotion>
                           </circle>
                         </g>
-                        <rect x="118" y="82" width="132" height="72" rx="18" fill="none" [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-width="1.2" opacity="0.35">
-                          <animateTransform attributeName="transform" type="rotate" values="-1 210 118;1 210 118;-1 210 118" dur="18s" repeatCount="indefinite"></animateTransform>
+                        <rect x="118" y="82" width="132" height="72" rx="18" fill="none"
+                          [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-width="1.2" opacity="0.35">
+                          <animateTransform attributeName="transform" type="rotate"
+                            values="-1 210 118;1 210 118;-1 210 118" dur="18s" repeatCount="indefinite">
+                          </animateTransform>
                         </rect>
                         <g opacity="0.18" stroke="currentColor" stroke-linecap="round">
                           <path d="M102 92h180" stroke-dasharray="4 12">
-                            <animate attributeName="stroke-dashoffset" values="0;-160" dur="11s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;-160" dur="11s"
+                              repeatCount="indefinite"></animate>
                           </path>
                           <path d="M94 108h196" stroke-dasharray="6 18">
-                            <animate attributeName="stroke-dashoffset" values="0;200" dur="13s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;200" dur="13s"
+                              repeatCount="indefinite"></animate>
                           </path>
                         </g>
                       </g>
                       <g *ngSwitchCase="'constellations'">
                         <rect x="90" y="44" width="240" height="112" rx="32" fill="currentColor" opacity="0.05"></rect>
-                        <g [attr.stroke]="'url(#constellation-link-' + i + ')'" stroke-width="1.4" stroke-linecap="round" opacity="0.6">
+                        <g [attr.stroke]="'url(#constellation-link-' + i + ')'" stroke-width="1.4"
+                          stroke-linecap="round" opacity="0.6">
                           <path d="M120 140l52-64 38 24 40-52 50 32" stroke-dasharray="12 18">
-                            <animate attributeName="stroke-dashoffset" values="0;-220" dur="20s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;-220" dur="20s"
+                              repeatCount="indefinite"></animate>
                           </path>
                           <path d="M190 76l24-20 48 32 34-18" stroke-dasharray="8 16">
-                            <animate attributeName="stroke-dashoffset" values="0;160" dur="12s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;160" dur="12s"
+                              repeatCount="indefinite"></animate>
                           </path>
                         </g>
-                        <rect x="110" y="56" width="4" height="88" [attr.fill]="'url(#constellation-link-' + i + ')'" opacity="0.35">
+                        <rect x="110" y="56" width="4" height="88" [attr.fill]="'url(#constellation-link-' + i + ')'"
+                          opacity="0.35">
                           <animate attributeName="x" values="110;300;110" dur="18s" repeatCount="indefinite"></animate>
                         </rect>
                         <g [attr.fill]="'url(#sparkle-' + i + ')'" opacity="0.9">
@@ -365,91 +402,118 @@
                             <animate attributeName="r" values="4;8;4" dur="7s" repeatCount="indefinite"></animate>
                           </circle>
                           <circle cx="172" cy="76" r="5">
-                            <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                           <circle cx="210" cy="100" r="5">
-                            <animate attributeName="opacity" values="1;0.5;1" dur="6.5s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="1;0.5;1" dur="6.5s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                           <circle cx="262" cy="48" r="5">
-                            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="8s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="8s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                         </g>
                         <g opacity="0.3" stroke="currentColor" stroke-dasharray="8 16">
                           <path d="M100 152h220">
-                            <animate attributeName="stroke-dashoffset" values="0;320" dur="18s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;320" dur="18s"
+                              repeatCount="indefinite"></animate>
                           </path>
                           <path d="M150 96l60-46 60 46">
-                            <animate attributeName="stroke-dashoffset" values="0;-220" dur="15s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;-220" dur="15s"
+                              repeatCount="indefinite"></animate>
                           </path>
                         </g>
                         <g fill="currentColor" opacity="0.28">
                           <circle cx="150" cy="132" r="3">
-                            <animateTransform attributeName="transform" type="translate" values="0 0; -2 -3; 1 3; 0 0" dur="6s" repeatCount="indefinite"></animateTransform>
+                            <animateTransform attributeName="transform" type="translate" values="0 0; -2 -3; 1 3; 0 0"
+                              dur="6s" repeatCount="indefinite"></animateTransform>
                           </circle>
                           <circle cx="200" cy="68" r="3.5">
-                            <animateTransform attributeName="transform" type="translate" values="0 0; 2 -4; -1 2; 0 0" dur="7s" repeatCount="indefinite"></animateTransform>
+                            <animateTransform attributeName="transform" type="translate" values="0 0; 2 -4; -1 2; 0 0"
+                              dur="7s" repeatCount="indefinite"></animateTransform>
                           </circle>
                           <circle cx="260" cy="128" r="3">
-                            <animateTransform attributeName="transform" type="translate" values="0 0; 3 2; -2 -3; 0 0" dur="5.5s" repeatCount="indefinite"></animateTransform>
+                            <animateTransform attributeName="transform" type="translate" values="0 0; 3 2; -2 -3; 0 0"
+                              dur="5.5s" repeatCount="indefinite"></animateTransform>
                           </circle>
                         </g>
                         <g fill="currentColor" opacity="0.18">
                           <rect x="118" y="108" width="80" height="40" rx="10">
-                            <animate attributeName="opacity" values="0.12;0.3;0.12" dur="10s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.12;0.3;0.12" dur="10s" repeatCount="indefinite">
+                            </animate>
                           </rect>
                           <rect x="222" y="108" width="70" height="40" rx="10">
-                            <animate attributeName="opacity" values="0.08;0.25;0.08" dur="11s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.08;0.25;0.08" dur="11s" repeatCount="indefinite">
+                            </animate>
                           </rect>
                         </g>
                       </g>
                       <g *ngSwitchDefault>
                         <rect x="90" y="60" width="240" height="76" rx="24" fill="currentColor" opacity="0.04">
-                          <animate attributeName="opacity" values="0.02;0.08;0.02" dur="15s" repeatCount="indefinite"></animate>
+                          <animate attributeName="opacity" values="0.02;0.08;0.02" dur="15s" repeatCount="indefinite">
+                          </animate>
                         </rect>
-                        <path d="M60 98h130" [attr.stroke]="'url(#prism-beam-' + i + ')'" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 18" [attr.filter]="'url(#beam-glow-' + i + ')'">
-                          <animate attributeName="stroke-dashoffset" values="0;-160" dur="8s" repeatCount="indefinite"></animate>
+                        <path d="M60 98h130" [attr.stroke]="'url(#prism-beam-' + i + ')'" stroke-width="6"
+                          stroke-linecap="round" stroke-dasharray="18 18" [attr.filter]="'url(#beam-glow-' + i + ')'">
+                          <animate attributeName="stroke-dashoffset" values="0;-160" dur="8s" repeatCount="indefinite">
+                          </animate>
                         </path>
                         <g [attr.filter]="'url(#beam-glow-' + i + ')'">
-                          <path d="M210 98l140 -34" [attr.stroke]="'url(#prism-split-' + i + ')'" stroke-width="5" stroke-linecap="round" stroke-dasharray="16 20" opacity="0.9">
-                            <animate attributeName="stroke-dashoffset" values="0;180" dur="9s" repeatCount="indefinite"></animate>
+                          <path d="M210 98l140 -34" [attr.stroke]="'url(#prism-split-' + i + ')'" stroke-width="5"
+                            stroke-linecap="round" stroke-dasharray="16 20" opacity="0.9">
+                            <animate attributeName="stroke-dashoffset" values="0;180" dur="9s" repeatCount="indefinite">
+                            </animate>
                           </path>
-                          <path d="M210 98l140 34" [attr.stroke]="'url(#prism-split-' + i + ')'" stroke-width="5" stroke-linecap="round" stroke-dasharray="18 24" opacity="0.7">
-                            <animate attributeName="stroke-dashoffset" values="0;200" dur="11s" repeatCount="indefinite"></animate>
+                          <path d="M210 98l140 34" [attr.stroke]="'url(#prism-split-' + i + ')'" stroke-width="5"
+                            stroke-linecap="round" stroke-dasharray="18 24" opacity="0.7">
+                            <animate attributeName="stroke-dashoffset" values="0;200" dur="11s"
+                              repeatCount="indefinite"></animate>
                           </path>
                         </g>
-                        <polygon points="170,140 210,40 250,140" fill="none" [attr.stroke]="'url(#grid-glow-' + i + ')'" stroke-width="1.4" opacity="0.5">
-                          <animateTransform attributeName="transform" type="scale" values="1 1;1.02 1.05;1 1" dur="14s" repeatCount="indefinite"></animateTransform>
+                        <polygon points="170,140 210,40 250,140" fill="none" [attr.stroke]="'url(#grid-glow-' + i + ')'"
+                          stroke-width="1.4" opacity="0.5">
+                          <animateTransform attributeName="transform" type="scale" values="1 1;1.02 1.05;1 1" dur="14s"
+                            repeatCount="indefinite"></animateTransform>
                         </polygon>
-                        <polygon points="178,132 210,60 242,132" [attr.fill]="'url(#beam-light-' + i + ')'" opacity="0.6">
-                          <animate attributeName="opacity" values="0.5;0.9;0.5" dur="9s" repeatCount="indefinite"></animate>
+                        <polygon points="178,132 210,60 242,132" [attr.fill]="'url(#beam-light-' + i + ')'"
+                          opacity="0.6">
+                          <animate attributeName="opacity" values="0.5;0.9;0.5" dur="9s" repeatCount="indefinite">
+                          </animate>
                         </polygon>
                         <circle cx="210" cy="98" r="10" [attr.fill]="'url(#sparkle-' + i + ')'" opacity="0.85">
                           <animate attributeName="r" values="8;14;8" dur="7s" repeatCount="indefinite"></animate>
                         </circle>
                         <g stroke="currentColor" stroke-width="0.8" opacity="0.22">
                           <line x1="120" y1="74" x2="290" y2="122" stroke-dasharray="6 16">
-                            <animate attributeName="stroke-dashoffset" values="0;-220" dur="12s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;-220" dur="12s"
+                              repeatCount="indefinite"></animate>
                           </line>
                           <line x1="120" y1="122" x2="290" y2="74" stroke-dasharray="6 16">
-                            <animate attributeName="stroke-dashoffset" values="0;220" dur="12s" repeatCount="indefinite"></animate>
+                            <animate attributeName="stroke-dashoffset" values="0;220" dur="12s"
+                              repeatCount="indefinite"></animate>
                           </line>
                         </g>
                         <g fill="currentColor" opacity="0.2">
                           <circle cx="210" cy="44" r="4">
-                            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="6s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.2;0.8;0.2" dur="6s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                           <circle cx="266" cy="62" r="3">
-                            <animate attributeName="opacity" values="0.4;1;0.4" dur="5.5s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.4;1;0.4" dur="5.5s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                           <circle cx="266" cy="134" r="3">
-                            <animate attributeName="opacity" values="0.4;1;0.4" dur="6.5s" repeatCount="indefinite"></animate>
+                            <animate attributeName="opacity" values="0.4;1;0.4" dur="6.5s" repeatCount="indefinite">
+                            </animate>
                           </circle>
                         </g>
                       </g>
                     </ng-container>
                   </svg>
                 </figure>
-                <div class="flex flex-col gap-6 px-10 pb-10 pt-6 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-6">
+                <div
+                  class="flex flex-col gap-6 px-10 pb-10 pt-6 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between lg:gap-6">
                   <div class="space-y-3 text-center lg:text-left">
                     <h3 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
                       {{ item.name }}
@@ -458,25 +522,21 @@
                       {{ item.status }}
                     </p>
                   </div>
-                  <a
-                    *ngIf="item.link; else comingSoon"
+                  <a *ngIf="item.link; else comingSoon"
                     class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/60 bg-white/80 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-slate-900 shadow-sm shadow-white/40 transition hover:border-brand-300 hover:bg-brand-500/25 hover:text-brand-700 dark:border-white/15 dark:bg-white/10 dark:text-white dark:hover:border-brand-200/60 dark:hover:bg-brand-400/20 dark:hover:text-brand-100"
-                    [href]="item.link"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
+                    [href]="item.link" rel="noreferrer" target="_blank">
                     Visit
                     <span aria-hidden="true">↗</span>
                   </a>
-                    <ng-template #comingSoon>
-                      <span
-                        class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-brand-500/50 bg-brand-500/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-brand-700 dark:border-brand-400/40 dark:bg-brand-500/15 dark:text-brand-100"
-                      >
-                        Coming soon
-                      </span>
-                    </ng-template>
+                  <ng-template #comingSoon>
+                    <span
+                      class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-brand-500/50 bg-brand-500/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-brand-700 dark:border-brand-400/40 dark:bg-brand-500/15 dark:text-brand-100">
+                      Coming soon
+                    </span>
+                  </ng-template>
                 </div>
-                <p class="px-10 pb-10 text-center text-sm font-medium text-slate-500/80 dark:text-slate-400/80 lg:text-left">
+                <p
+                  class="px-10 pb-10 text-center text-sm font-medium text-slate-500/80 dark:text-slate-400/80 lg:text-left">
                   {{ item.tagline }}
                 </p>
               </div>
@@ -486,8 +546,9 @@
       </div>
     </section>
 
-    <section id="experience" class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-      <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/40 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40 dark:shadow-brand-500/10">
+    <!-- <section id="experience" class="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+      <div
+        class="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/40 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40 dark:shadow-brand-500/10">
         <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Experience</h2>
@@ -498,7 +559,8 @@
         </div>
         <ol class="space-y-10 border-l border-slate-200 pl-10 dark:border-white/10">
           <li *ngFor="let item of experience" class="relative space-y-4">
-            <span class="absolute -left-[2.9rem] top-2 flex h-6 w-6 items-center justify-center rounded-full border border-brand-400/50 bg-brand-500/15 dark:border-brand-300/60 dark:bg-brand-500/20">
+            <span
+              class="absolute -left-[2.9rem] top-2 flex h-6 w-6 items-center justify-center rounded-full border border-brand-400/50 bg-brand-500/15 dark:border-brand-300/60 dark:bg-brand-500/20">
               <span class="h-2 w-2 rounded-full bg-brand-500 dark:bg-brand-300"></span>
             </span>
             <div class="flex flex-wrap items-baseline justify-between gap-3">
@@ -518,15 +580,18 @@
       </div>
 
       <aside class="space-y-6">
-        <div class="rounded-3xl border border-slate-200 bg-white p-6 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
+        <div
+          class="rounded-3xl border border-slate-200 bg-white p-6 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
           <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Education</h3>
-          <div *ngFor="let school of education" class="mt-5 space-y-3 border-b border-slate-200 pb-5 last:border-b-0 last:pb-0 dark:border-white/10">
+          <div *ngFor="let school of education"
+            class="mt-5 space-y-3 border-b border-slate-200 pb-5 last:border-b-0 last:pb-0 dark:border-white/10">
             <div>
               <p class="text-sm font-semibold text-brand-700 dark:text-brand-200/90">{{ school.degree }}</p>
               <p class="text-base font-medium text-slate-900 dark:text-white">{{ school.school }}</p>
               <p class="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">{{ school.period }}</p>
               <p class="text-xs text-slate-500 dark:text-slate-400">{{ school.location }}</p>
-              <p *ngIf="school.honors" class="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-500 dark:text-amber-200">
+              <p *ngIf="school.honors"
+                class="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-amber-500 dark:text-amber-200">
                 {{ school.honors }}
               </p>
             </div>
@@ -538,10 +603,12 @@
           </div>
         </div>
 
-        <div class="rounded-3xl border border-slate-200 bg-white p-6 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
+        <div
+          class="rounded-3xl border border-slate-200 bg-white p-6 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
           <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Awards</h3>
           <ul class="mt-4 space-y-4 text-sm text-slate-600 dark:text-slate-300">
-            <li *ngFor="let award of awards" class="border-b border-slate-200 pb-4 last:border-b-0 last:pb-0 dark:border-white/10">
+            <li *ngFor="let award of awards"
+              class="border-b border-slate-200 pb-4 last:border-b-0 last:pb-0 dark:border-white/10">
               <p class="font-semibold text-slate-900 dark:text-white">{{ award.title }}</p>
               <p class="text-xs text-brand-600 dark:text-brand-200/80">{{ award.year }}</p>
               <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{{ award.detail }}</p>
@@ -549,7 +616,7 @@
           </ul>
         </div>
       </aside>
-    </section>
+    </section> -->
 
     <section id="projects" class="space-y-8">
       <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -560,27 +627,18 @@
           </p>
         </div>
         <div class="flex flex-wrap gap-3">
-          <a
-            class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
-            href="https://github.com/EdmondMbadu"
-            rel="noreferrer"
-            target="_blank"
-          >
+          <a class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
+            href="https://github.com/EdmondMbadu" rel="noreferrer" target="_blank">
             <span aria-hidden="true" class="flex h-4 w-4 items-center justify-center">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.469-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.046.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.24 2.873.117 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.624-5.476 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                />
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.469-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.046.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.24 2.873.117 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.624-5.476 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
               </svg>
             </span>
             GitHub
           </a>
-          <a
-            class="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-5 py-2 text-sm font-semibold text-brand-700 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:text-brand-100"
-            href="https://www.linkedin.com/in/edmond-mbadu-245b36145/"
-            rel="noreferrer"
-            target="_blank"
-          >
+          <a class="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/15 px-5 py-2 text-sm font-semibold text-brand-700 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:text-brand-100"
+            href="https://www.linkedin.com/in/edmond-mbadu-245b36145/" rel="noreferrer" target="_blank">
             <span aria-hidden="true">in</span>
             LinkedIn
           </a>
@@ -588,15 +646,16 @@
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
-        <article
-          *ngFor="let project of projects"
-          class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 transition hover:-translate-y-1 hover:border-brand-400/50 hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900/40 dark:hover:border-brand-400/50 dark:hover:bg-slate-900/60"
-        >
-          <div class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-100 via-transparent to-transparent opacity-0 transition group-hover:opacity-100 dark:from-white/10"></div>
+        <article *ngFor="let project of projects"
+          class="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 transition hover:-translate-y-1 hover:border-brand-400/50 hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900/40 dark:hover:border-brand-400/50 dark:hover:bg-slate-900/60">
+          <div
+            class="absolute inset-0 -z-10 bg-gradient-to-br from-slate-100 via-transparent to-transparent opacity-0 transition group-hover:opacity-100 dark:from-white/10">
+          </div>
           <div class="mb-4 flex flex-wrap items-center justify-between gap-4">
             <h3 class="text-xl font-semibold text-slate-900 dark:text-white">{{ project.name }}</h3>
             <div class="flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
-              <span *ngFor="let tech of project.stack" class="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-white/10 dark:bg-slate-900/60">
+              <span *ngFor="let tech of project.stack"
+                class="rounded-full border border-slate-200 bg-white px-3 py-1 dark:border-white/10 dark:bg-slate-900/60">
                 {{ tech }}
               </span>
             </div>
@@ -609,13 +668,9 @@
               {{ outcome }}
             </li>
           </ul>
-          <a
-            *ngIf="project.link"
+          <a *ngIf="project.link"
             class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-500 dark:text-brand-200 dark:hover:text-brand-100"
-            [href]="project.link"
-            rel="noreferrer"
-            target="_blank"
-          >
+            [href]="project.link" rel="noreferrer" target="_blank">
             Explore project
             <span aria-hidden="true">↗</span>
           </a>
@@ -623,7 +678,8 @@
       </div>
     </section>
 
-    <section id="skills" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40 dark:shadow-brand-500/10">
+    <!-- <section id="skills"
+      class="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/40 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40 dark:shadow-brand-500/10">
       <div class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
           <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Expertise</h2>
@@ -633,38 +689,37 @@
         </div>
       </div>
       <div class="grid gap-6 md:grid-cols-2">
-        <article *ngFor="let group of skillGroups" class="rounded-2xl border border-slate-200 bg-slate-100/60 p-6 dark:border-white/10 dark:bg-slate-900/60">
-          <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700 dark:text-brand-200/80">{{ group.category }}</h3>
+        <article *ngFor="let group of skillGroups"
+          class="rounded-2xl border border-slate-200 bg-slate-100/60 p-6 dark:border-white/10 dark:bg-slate-900/60">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.3em] text-brand-700 dark:text-brand-200/80">{{
+            group.category }}</h3>
           <div class="mt-4 flex flex-wrap gap-2">
-            <span
-              *ngFor="let item of group.items"
-              class="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-white/15 dark:bg-slate-900/60 dark:text-slate-200"
-            >
+            <span *ngFor="let item of group.items"
+              class="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-sm text-slate-700 dark:border-white/15 dark:bg-slate-900/60 dark:text-slate-200">
               {{ item }}
             </span>
           </div>
         </article>
       </div>
-    </section>
+    </section> -->
 
     <section id="publications" class="grid gap-6 lg:grid-cols-2">
-      <div class="rounded-3xl border border-slate-200 bg-white p-8 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
+      <div
+        class="rounded-3xl border border-slate-200 bg-white p-8 transition-colors duration-500 dark:border-white/10 dark:bg-slate-900/40">
         <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Publications</h2>
         <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
           Research and academic writing that guide how I design secure, scalable systems.
         </p>
         <div class="mt-6 space-y-6">
-          <article *ngFor="let paper of publications" class="rounded-2xl border border-slate-200 bg-slate-100/60 p-5 dark:border-white/10 dark:bg-slate-900/60">
-            <p class="text-xs uppercase tracking-[0.3em] text-brand-700 dark:text-brand-200/80">{{ paper.year }} · {{ paper.outlet }}</p>
+          <article *ngFor="let paper of publications"
+            class="rounded-2xl border border-slate-200 bg-slate-100/60 p-5 dark:border-white/10 dark:bg-slate-900/60">
+            <p class="text-xs uppercase tracking-[0.3em] text-brand-700 dark:text-brand-200/80">{{ paper.year }} · {{
+              paper.outlet }}</p>
             <h3 class="mt-3 text-lg font-semibold text-slate-900 dark:text-white">{{ paper.title }}</h3>
             <p class="mt-2 text-sm text-slate-600 dark:text-slate-300" *ngIf="paper.note">{{ paper.note }}</p>
-            <a
-              *ngIf="paper.link"
+            <a *ngIf="paper.link"
               class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition hover:text-brand-500 dark:text-brand-200 dark:hover:text-brand-100"
-              [href]="paper.link"
-              rel="noreferrer"
-              target="_blank"
-            >
+              [href]="paper.link" rel="noreferrer" target="_blank">
               Read publication
               <span aria-hidden="true">↗</span>
             </a>
@@ -672,40 +727,31 @@
         </div>
       </div>
 
-      <div class="rounded-3xl border border-slate-200 bg-gradient-to-br from-brand-200/40 via-brand-200/20 to-white p-8 transition-colors duration-500 dark:border-white/10 dark:bg-gradient-to-br dark:from-brand-500/20 dark:via-brand-500/10 dark:to-white/5">
-        <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Let&apos;s build something memorable</h2>
+      <div
+        class="rounded-3xl border border-slate-200 bg-gradient-to-br from-brand-200/40 via-brand-200/20 to-white p-8 transition-colors duration-500 dark:border-white/10 dark:bg-gradient-to-br dark:from-brand-500/20 dark:via-brand-500/10 dark:to-white/5">
+        <h2 class="text-2xl font-semibold text-slate-900 md:text-3xl dark:text-white">Let&apos;s build something
+          memorable</h2>
         <p class="mt-3 text-sm text-slate-600 dark:text-slate-100/80">
           From ML dashboards to storytelling platforms, I bring rigor, curiosity, and polish to every release.
         </p>
         <div class="mt-6 space-y-4">
-          <a
-            class="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/20"
-            [href]="'mailto:' + hero.email"
-          >
+          <a class="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/20"
+            [href]="'mailto:' + hero.email">
             <span>Drop me a line</span>
             <span class="text-base" aria-hidden="true">↗</span>
           </a>
-          <a
-            class="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
-            href="https://github.com/EdmondMbadu"
-            rel="noreferrer"
-            target="_blank"
-          >
+          <a class="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-semibold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:border-white/25 dark:hover:bg-white/10"
+            href="https://github.com/EdmondMbadu" rel="noreferrer" target="_blank">
             <span>Review my build logs on GitHub</span>
             <span class="text-base" aria-hidden="true">
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                 <path
-                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.469-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.046.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.24 2.873.117 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.624-5.476 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                />
+                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.082-.73.082-.73 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.775.418-1.305.762-1.606-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.469-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.046.138 3.003.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.24 2.873.117 3.176.77.84 1.233 1.91 1.233 3.22 0 4.61-2.804 5.624-5.476 5.921.43.372.823 1.102.823 2.222v3.293c0 .322.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
               </svg>
             </span>
           </a>
-          <a
-            class="flex items-center justify-between rounded-2xl border border-brand-400/40 bg-brand-500/15 px-6 py-4 text-sm font-semibold text-brand-700 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:text-brand-50"
-            href="https://www.linkedin.com/in/edmond-mbadu-245b36145/"
-            rel="noreferrer"
-            target="_blank"
-          >
+          <a class="flex items-center justify-between rounded-2xl border border-brand-400/40 bg-brand-500/15 px-6 py-4 text-sm font-semibold text-brand-700 transition hover:border-brand-300/60 hover:bg-brand-400/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-300 dark:text-brand-50"
+            href="https://www.linkedin.com/in/edmond-mbadu-245b36145/" rel="noreferrer" target="_blank">
             <span>Connect on LinkedIn</span>
             <span class="text-base" aria-hidden="true">in</span>
           </a>
