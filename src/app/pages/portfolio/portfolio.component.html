@@ -211,6 +211,32 @@
                           <feMergeNode in="SourceGraphic"></feMergeNode>
                         </feMerge>
                       </filter>
+                      <linearGradient [attr.id]="'rocket-flame-' + i" x1="0.5" y1="1" x2="0.5" y2="0">
+                        <stop offset="0" stop-color="currentColor" stop-opacity="0.9" />
+                        <stop offset="0.3" stop-color="currentColor" stop-opacity="0.7" />
+                        <stop offset="0.6" stop-color="currentColor" stop-opacity="0.4" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+                      </linearGradient>
+                      <linearGradient [attr.id]="'rocket-exhaust-' + i" x1="0.5" y1="1" x2="0.5" y2="0.3">
+                        <stop offset="0" stop-color="currentColor" stop-opacity="0.85" />
+                        <stop offset="0.5" stop-color="currentColor" stop-opacity="0.5" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0.1" />
+                      </linearGradient>
+                      <radialGradient [attr.id]="'rocket-glow-' + i" cx="0.5" cy="0.3" r="0.4">
+                        <stop offset="0" stop-color="currentColor" stop-opacity="0.8" />
+                        <stop offset="0.7" stop-color="currentColor" stop-opacity="0.3" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+                      </radialGradient>
+                      <radialGradient [attr.id]="'rocket-smoke-' + i" cx="0.5" cy="0.5" r="0.5">
+                        <stop offset="0" stop-color="currentColor" stop-opacity="0.3" />
+                        <stop offset="0.5" stop-color="currentColor" stop-opacity="0.15" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+                      </radialGradient>
+                      <linearGradient [attr.id]="'rocket-body-' + i" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="currentColor" stop-opacity="0.95" />
+                        <stop offset="0.5" stop-color="currentColor" stop-opacity="0.85" />
+                        <stop offset="1" stop-color="currentColor" stop-opacity="0.75" />
+                      </linearGradient>
                     </defs>
                     <ng-container [ngSwitch]="item.motif">
                       <g *ngSwitchCase="'orbitals'">
@@ -447,6 +473,274 @@
                             <animate attributeName="opacity" values="0.08;0.25;0.08" dur="11s" repeatCount="indefinite">
                             </animate>
                           </rect>
+                        </g>
+                      </g>
+                      <g *ngSwitchCase="'rocket'">
+                        <!-- Launch pad/base with more detail -->
+                        <rect x="160" y="140" width="100" height="20" rx="4" fill="currentColor" opacity="0.2">
+                          <animate attributeName="opacity" values="0.15;0.25;0.15" dur="3s" repeatCount="indefinite">
+                          </animate>
+                        </rect>
+                        <rect x="170" y="150" width="80" height="8" rx="2" fill="currentColor" opacity="0.1"></rect>
+
+                        <!-- Smoke clouds from launch -->
+                        <g opacity="0.4">
+                          <ellipse cx="190" cy="155" rx="25" ry="15" [attr.fill]="'url(#rocket-smoke-' + i + ')'">
+                            <animate attributeName="cx" values="190;185;190" dur="2s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="rx" values="20;30;20" dur="2.5s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="2s" repeatCount="indefinite">
+                            </animate>
+                          </ellipse>
+                          <ellipse cx="230" cy="155" rx="25" ry="15" [attr.fill]="'url(#rocket-smoke-' + i + ')'">
+                            <animate attributeName="cx" values="230;235;230" dur="2.2s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="rx" values="20;30;20" dur="2.7s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.3;0.5;0.3" dur="2.2s" repeatCount="indefinite">
+                            </animate>
+                          </ellipse>
+                        </g>
+
+                        <!-- Enhanced exhaust flames with multiple layers -->
+                        <g [attr.filter]="'url(#beam-glow-' + i + ')'" opacity="0.9">
+                          <!-- Outer flame layer -->
+                          <ellipse cx="210" cy="150" rx="24" ry="38" [attr.fill]="'url(#rocket-flame-' + i + ')'">
+                            <animate attributeName="ry" values="32;42;32" dur="0.35s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="rx" values="22;26;22" dur="0.45s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.75;0.98;0.75" dur="0.25s"
+                              repeatCount="indefinite">
+                            </animate>
+                          </ellipse>
+                          <!-- Middle flame layer -->
+                          <ellipse cx="210" cy="152" rx="18" ry="32" [attr.fill]="'url(#rocket-exhaust-' + i + ')'"
+                            opacity="0.98">
+                            <animate attributeName="ry" values="28;36;28" dur="0.3s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="rx" values="16;20;16" dur="0.4s" repeatCount="indefinite">
+                            </animate>
+                          </ellipse>
+                          <!-- Inner core flame - brightest -->
+                          <ellipse cx="210" cy="153" rx="12" ry="26" [attr.fill]="'url(#rocket-exhaust-' + i + ')'"
+                            opacity="1">
+                            <animate attributeName="ry" values="24;30;24" dur="0.2s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="rx" values="10;14;10" dur="0.3s" repeatCount="indefinite">
+                            </animate>
+                          </ellipse>
+                          <!-- Side booster flames -->
+                          <ellipse cx="198" cy="148" rx="10" ry="22" [attr.fill]="'url(#rocket-flame-' + i + ')'"
+                            opacity="0.8">
+                            <animate attributeName="ry" values="18;26;18" dur="0.3s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.6;0.9;0.6" dur="0.35s" repeatCount="indefinite">
+                            </animate>
+                          </ellipse>
+                          <ellipse cx="222" cy="148" rx="10" ry="22" [attr.fill]="'url(#rocket-flame-' + i + ')'"
+                            opacity="0.8">
+                            <animate attributeName="ry" values="18;26;18" dur="0.3s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.6;0.9;0.6" dur="0.35s" repeatCount="indefinite">
+                            </animate>
+                          </ellipse>
+                        </g>
+
+                        <!-- Rocket body with enhanced design and upward motion -->
+                        <g [attr.filter]="'url(#card-glow-' + i + ')'">
+                          <!-- Main body -->
+                          <rect x="195" y="60" width="30" height="85" rx="4" [attr.fill]="'url(#rocket-body-' + i + ')'"
+                            opacity="0.95">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </rect>
+                          <!-- Body detail lines -->
+                          <line x1="200" y1="75" x2="200" y2="140" stroke="currentColor" stroke-width="0.5"
+                            opacity="0.3">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </line>
+                          <line x1="220" y1="75" x2="220" y2="140" stroke="currentColor" stroke-width="0.5"
+                            opacity="0.3">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </line>
+                          <!-- Rocket nose cone with shine -->
+                          <polygon points="195,60 210,38 225,60" [attr.fill]="'url(#rocket-glow-' + i + ')'"
+                            opacity="0.98">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </polygon>
+                          <!-- Nose cone highlight -->
+                          <polygon points="198,60 210,42 222,60" fill="currentColor" opacity="0.4">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </polygon>
+                          <!-- Rocket window with glow -->
+                          <circle cx="210" cy="85" r="7" fill="currentColor" opacity="0.2">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </circle>
+                          <circle cx="210" cy="85" r="5" fill="currentColor" opacity="0.5">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                            <animate attributeName="opacity" values="0.4;0.6;0.4" dur="2.5s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <!-- Rocket fins with detail -->
+                          <polygon points="195,140 195,145 183,145" [attr.fill]="'url(#rocket-body-' + i + ')'"
+                            opacity="0.85">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </polygon>
+                          <polygon points="225,140 225,145 237,145" [attr.fill]="'url(#rocket-body-' + i + ')'"
+                            opacity="0.85">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </polygon>
+                          <!-- Fin details -->
+                          <line x1="195" y1="142" x2="183" y2="145" stroke="currentColor" stroke-width="0.5"
+                            opacity="0.4">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </line>
+                          <line x1="225" y1="142" x2="237" y2="145" stroke="currentColor" stroke-width="0.5"
+                            opacity="0.4">
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0"
+                              dur="2.5s" repeatCount="indefinite">
+                            </animateTransform>
+                          </line>
+                        </g>
+
+                        <!-- Enhanced motion trail particles with more variety -->
+                        <g fill="currentColor" opacity="0.6">
+                          <circle r="3">
+                            <animateMotion dur="1s" repeatCount="indefinite" rotate="auto" path="M210 145 L210 180">
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle r="2.5">
+                            <animateMotion dur="0.9s" repeatCount="indefinite" rotate="auto" path="M205 150 L205 180">
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.7;0.15;0.7" dur="0.9s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle r="2.5">
+                            <animateMotion dur="0.95s" repeatCount="indefinite" rotate="auto" path="M215 150 L215 180">
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.7;0.15;0.7" dur="0.95s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle r="2">
+                            <animateMotion dur="0.8s" repeatCount="indefinite" rotate="auto" path="M208 148 L208 180">
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.6;0.1;0.6" dur="0.8s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle r="2">
+                            <animateMotion dur="0.85s" repeatCount="indefinite" rotate="auto" path="M212 148 L212 180">
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.6;0.1;0.6" dur="0.85s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle r="1.5">
+                            <animateMotion dur="0.7s" repeatCount="indefinite" rotate="auto" path="M202 152 L202 180">
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.5;0.05;0.5" dur="0.7s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle r="1.5">
+                            <animateMotion dur="0.75s" repeatCount="indefinite" rotate="auto" path="M218 152 L218 180">
+                            </animateMotion>
+                            <animate attributeName="opacity" values="0.5;0.05;0.5" dur="0.75s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                        </g>
+
+                        <!-- Enhanced stars in background with twinkling -->
+                        <g [attr.fill]="'url(#sparkle-' + i + ')'" opacity="0.8">
+                          <circle cx="120" cy="50" r="3.5">
+                            <animate attributeName="opacity" values="0.5;1;0.5" dur="4s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="r" values="3;4;3" dur="4s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle cx="300" cy="70" r="3">
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="r" values="2.5;3.5;2.5" dur="5s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle cx="280" cy="45" r="2.5">
+                            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="r" values="2;3;2" dur="3.5s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle cx="140" cy="30" r="2.5">
+                            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4.5s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="r" values="2;3;2" dur="4.5s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle cx="320" cy="55" r="2">
+                            <animate attributeName="opacity" values="0.4;0.85;0.4" dur="3.8s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="r" values="1.5;2.5;1.5" dur="3.8s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                        </g>
+
+                        <!-- Enhanced motion lines showing upward movement -->
+                        <g stroke="currentColor" stroke-width="2" opacity="0.3" stroke-dasharray="5 8">
+                          <line x1="210" y1="38" x2="210" y2="10">
+                            <animate attributeName="stroke-dashoffset" values="0;-20" dur="0.7s"
+                              repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.2;0.4;0.2" dur="1.8s" repeatCount="indefinite">
+                            </animate>
+                          </line>
+                          <line x1="200" y1="50" x2="200" y2="20">
+                            <animate attributeName="stroke-dashoffset" values="0;-20" dur="0.9s"
+                              repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.15;0.35;0.15" dur="2s" repeatCount="indefinite">
+                            </animate>
+                          </line>
+                          <line x1="220" y1="50" x2="220" y2="20">
+                            <animate attributeName="stroke-dashoffset" values="0;-20" dur="0.85s"
+                              repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.15;0.35;0.15" dur="1.9s"
+                              repeatCount="indefinite">
+                            </animate>
+                          </line>
+                          <line x1="195" y1="60" x2="195" y2="35">
+                            <animate attributeName="stroke-dashoffset" values="0;-18" dur="1s" repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.1;0.3;0.1" dur="2.1s" repeatCount="indefinite">
+                            </animate>
+                          </line>
+                          <line x1="225" y1="60" x2="225" y2="35">
+                            <animate attributeName="stroke-dashoffset" values="0;-18" dur="0.95s"
+                              repeatCount="indefinite">
+                            </animate>
+                            <animate attributeName="opacity" values="0.1;0.3;0.1" dur="2.05s" repeatCount="indefinite">
+                            </animate>
+                          </line>
                         </g>
                       </g>
                       <g *ngSwitchDefault>

@@ -74,13 +74,13 @@ export class PortfolioComponent {
       motif: 'constellations'
     },
     {
-      name: 'SocratiLens',
-      tagline: 'Foresight analytics studio',
-      description: 'An in-progress platform experimenting with AI-guided discovery for civic research teams.',
-      link: null,
-      status: 'In development',
-      visual: { from: 'from-fuchsia-500/60', via: 'via-purple-500/40', to: 'to-slate-500/60' },
-      motif: 'prism'
+      name: 'RocketPrompt.io',
+      tagline: 'Launch Your Favorite Prompts With Just One Click',
+      description: 'Create beautiful, short custom links for your AI prompts. Share once, launch everywhere.',
+      link: 'https://rocketprompt.io/',
+      status: 'Live',
+      visual: { from: 'from-orange-500/60', via: 'via-red-500/40', to: 'to-amber-500/60' },
+      motif: 'rocket'
     }
   ];
 
