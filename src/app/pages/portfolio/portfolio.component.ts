@@ -81,6 +81,15 @@ export class PortfolioComponent {
       status: 'Live',
       visual: { from: 'from-amber-500/60', via: 'via-orange-400/40', to: 'to-rose-500/60' },
       motif: 'constellations'
+    },
+    {
+      name: 'SocratiLens',
+      tagline: 'Foresight studio',
+      description: 'An in-progress platform experimenting with AI-guided discovery for civic research teams.',
+      link: null,
+      status: 'Coming soon',
+      visual: { from: 'from-fuchsia-500/60', via: 'via-purple-500/40', to: 'to-slate-500/60' },
+      motif: 'prism'
     }
   ];
 
