@@ -56,6 +56,15 @@ export class PortfolioComponent {
       motif: 'orbitals'
     },
     {
+      name: 'RocketPrompt.io',
+      tagline: 'Launch Your Favorite Prompts With Just One Click',
+      description: 'Create beautiful, short custom links for your AI prompts. Share once, launch everywhere.',
+      link: 'https://rocketprompt.io/',
+      status: 'Live',
+      visual: { from: 'from-orange-500/60', via: 'via-red-500/40', to: 'to-amber-500/60' },
+      motif: 'rocket'
+    },
+    {
       name: 'Kank',
       tagline: 'Microfinance for African entrepreneurs',
       description: 'A lending companion that unlocks microfinance access and portfolio visibility for African small business owners.',
@@ -72,15 +81,6 @@ export class PortfolioComponent {
       status: 'Live',
       visual: { from: 'from-amber-500/60', via: 'via-orange-400/40', to: 'to-rose-500/60' },
       motif: 'constellations'
-    },
-    {
-      name: 'RocketPrompt.io',
-      tagline: 'Launch Your Favorite Prompts With Just One Click',
-      description: 'Create beautiful, short custom links for your AI prompts. Share once, launch everywhere.',
-      link: 'https://rocketprompt.io/',
-      status: 'Live',
-      visual: { from: 'from-orange-500/60', via: 'via-red-500/40', to: 'to-amber-500/60' },
-      motif: 'rocket'
     }
   ];
 
