@@ -360,13 +360,14 @@
                           </line>
                         </g>
 
-                        <!-- Exponential growth curve -->
+                        <!-- Exponential growth curve - steep vertical at end -->
                         <g [attr.filter]="'url(#beam-glow-' + i + ')'">
-                          <!-- Exponential curve using cubic bezier for smooth exponential growth -->
-                          <path d="M120 140 C130 135, 150 125, 170 110 C185 98, 210 80, 240 65 C255 57, 275 50, 300 45"
+                          <!-- Exponential curve with dramatic vertical growth at the end -->
+                          <path
+                            d="M120 140 C130 135, 150 125, 170 110 C185 98, 210 80, 240 65 C255 57, 275 50, 290 48 C295 35, 300 25, 300 15"
                             fill="none" [attr.stroke]="'url(#finance-growth-' + i + ')'" stroke-width="4"
                             stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
-                            <animate attributeName="stroke-dasharray" values="0,500;500,0" dur="2s"
+                            <animate attributeName="stroke-dasharray" values="0,550;550,0" dur="2s"
                               repeatCount="indefinite">
                             </animate>
                           </path>
@@ -378,28 +379,33 @@
                           </circle>
                           <circle cx="170" cy="110" r="3.5" [attr.fill]="'url(#finance-node-' + i + ')'" opacity="0.8">
                             <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"
-                              begin="0.25s">
+                              begin="0.2s">
                             </animate>
                           </circle>
                           <circle cx="200" cy="88" r="4" [attr.fill]="'url(#finance-node-' + i + ')'" opacity="0.85">
                             <animate attributeName="opacity" values="0.65;1;0.65" dur="2s" repeatCount="indefinite"
-                              begin="0.5s">
+                              begin="0.4s">
                             </animate>
                           </circle>
                           <circle cx="230" cy="68" r="4" [attr.fill]="'url(#finance-node-' + i + ')'" opacity="0.9">
                             <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"
-                              begin="0.75s">
+                              begin="0.6s">
                             </animate>
                           </circle>
                           <circle cx="260" cy="54" r="4.5" [attr.fill]="'url(#finance-node-' + i + ')'" opacity="0.95">
                             <animate attributeName="opacity" values="0.75;1;0.75" dur="2s" repeatCount="indefinite"
+                              begin="0.8s">
+                            </animate>
+                          </circle>
+                          <circle cx="290" cy="48" r="5" [attr.fill]="'url(#finance-node-' + i + ')'" opacity="0.98">
+                            <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"
                               begin="1s">
                             </animate>
                           </circle>
-                          <circle cx="300" cy="45" r="5.5" [attr.fill]="'url(#finance-node-' + i + ')'" opacity="1">
-                            <animate attributeName="r" values="4.5;6.5;4.5" dur="1.5s" repeatCount="indefinite">
+                          <circle cx="300" cy="15" r="6" [attr.fill]="'url(#finance-node-' + i + ')'" opacity="1">
+                            <animate attributeName="r" values="5;7;5" dur="1.5s" repeatCount="indefinite">
                             </animate>
-                            <animate attributeName="opacity" values="0.85;1;0.85" dur="1.5s" repeatCount="indefinite">
+                            <animate attributeName="opacity" values="0.9;1;0.9" dur="1.5s" repeatCount="indefinite">
                             </animate>
                           </circle>
                         </g>
@@ -437,21 +443,26 @@
                           </path>
                           <path d="M170 110 Q185 99, 200 88" fill="none">
                             <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite"
-                              begin="0.25s">
+                              begin="0.2s">
                             </animate>
                           </path>
                           <path d="M200 88 Q215 76.5, 230 68" fill="none">
                             <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite"
-                              begin="0.5s">
+                              begin="0.4s">
                             </animate>
                           </path>
                           <path d="M230 68 Q245 59.5, 260 54" fill="none">
                             <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite"
-                              begin="0.75s">
+                              begin="0.6s">
                             </animate>
                           </path>
-                          <path d="M260 54 Q280 49.5, 300 45" fill="none">
+                          <path d="M260 54 Q275 51, 290 48" fill="none">
                             <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite"
+                              begin="0.8s">
+                            </animate>
+                          </path>
+                          <path d="M290 48 L300 15" fill="none">
+                            <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"
                               begin="1s">
                             </animate>
                           </path>
@@ -485,24 +496,28 @@
                           </text>
                         </g>
 
-                        <!-- Growth indicator arrow -->
-                        <g [attr.filter]="'url(#card-glow-' + i + ')'" opacity="0.7">
-                          <path d="M290 50 L300 45 L290 40" fill="none" stroke="currentColor" stroke-width="3"
+                        <!-- Growth indicator arrow pointing skyward -->
+                        <g [attr.filter]="'url(#card-glow-' + i + ')'" opacity="0.8">
+                          <path d="M295 20 L300 15 L305 20" fill="none" stroke="currentColor" stroke-width="3.5"
                             stroke-linecap="round" stroke-linejoin="round">
-                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0"
+                            <animateTransform attributeName="transform" type="translate" values="0 0;0 -5;0 0"
                               dur="1.5s" repeatCount="indefinite">
                             </animateTransform>
-                            <animate attributeName="opacity" values="0.5;0.9;0.5" dur="1.5s" repeatCount="indefinite">
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite">
                             </animate>
                           </path>
                         </g>
 
                         <!-- Sparkle effects for success/growth along exponential curve -->
                         <g [attr.fill]="'url(#sparkle-' + i + ')'" opacity="0.7">
-                          <circle cx="300" cy="45" r="3.5">
-                            <animate attributeName="r" values="2.5;4.5;2.5" dur="2s" repeatCount="indefinite">
+                          <circle cx="300" cy="15" r="4">
+                            <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite">
                             </animate>
-                            <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite">
+                            <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite">
+                            </animate>
+                          </circle>
+                          <circle cx="290" cy="48" r="3">
+                            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.2s" repeatCount="indefinite">
                             </animate>
                           </circle>
                           <circle cx="140" cy="132" r="2">
