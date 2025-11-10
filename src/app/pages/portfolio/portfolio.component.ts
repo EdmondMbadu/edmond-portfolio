@@ -62,7 +62,7 @@ export class PortfolioComponent {
       link: 'https://kank-4bbbc.web.app/',
       status: 'Live',
       visual: { from: 'from-emerald-500/60', via: 'via-teal-400/40', to: 'to-blue-500/60' },
-      motif: 'horizon'
+      motif: 'finance'
     },
     {
       name: 'Kank Learning',
