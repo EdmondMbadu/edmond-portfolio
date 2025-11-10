@@ -66,8 +66,8 @@ export class PortfolioComponent {
     },
     {
       name: 'Kank',
-      tagline: 'Microfinance for African entrepreneurs',
-      description: 'A lending companion that unlocks microfinance access and portfolio visibility for African small business owners.',
+      tagline: 'Finance tracking tool',
+      description: 'A finance tracking tool for small business owners to manage lending, portfolio visibility, and financial growth.',
       link: 'https://kank-4bbbc.web.app/',
       status: 'Live',
       visual: { from: 'from-emerald-500/60', via: 'via-teal-400/40', to: 'to-blue-500/60' },
