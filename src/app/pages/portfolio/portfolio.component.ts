@@ -83,7 +83,7 @@ export class PortfolioComponent {
       motif: 'constellations'
     },
     {
-      name: 'SocratiLens',
+      name: 'SocraticLens',
       tagline: 'Foresight studio',
       description: 'An in-progress platform experimenting with AI-guided discovery for civic research teams.',
       link: null,
