@@ -1,11 +1,12 @@
 import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '../../services/theme.service';
+import { WorkCard3dComponent } from '../../components/work-card-3d/work-card-3d.component';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, WorkCard3dComponent],
   templateUrl: './portfolio.component.html'
 })
 export class PortfolioComponent {
